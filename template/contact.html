@@ -1,0 +1,75 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/contact.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+
+</head>
+<body>
+    <div class="form-container">
+        <div class="wrapper">
+            <h2>contact us</h2>
+            <div class="form-section">
+
+                
+                <!-- left side -->
+                <div class="form-details">
+                    <ul>
+                        <li>
+                            <div class="icons">
+                                <i class="fa-solid fa-location-dot"></i>
+                            </div>
+                            <div class="content">
+                                <strong>Location:</strong>
+                                <a href="https://www.google.com/maps/search/Sokkalingapuram,+tisayanvilai/@8.2974563,77.828425,16z?entry=ttu"><p>Chockalingapuram,tamil nadu,627-651</p></a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icons">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div class="content">
+                                <strong>Email:</strong>
+                                <a href="mailto:naachiyarcons@gmail.com"> naachiyarcons@gmail.com </a>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="icons">
+                                <i class="fa-brands fa-whatsapp"></i>
+                            </div>
+                            <div class="content">
+                                <strong>whatsapp:</strong>
+                                <a href="https://api.whatsapp.com/send?phone=6374618016">6374618016</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- right side -->
+                <div class="input-field">
+                    <form method="post" action="">
+                        {% csrf_token%}
+                        <div class="form-group">
+                            <input type="text" name="name" class="form-control" required="required" />
+                            <span class="form-label">Name</span>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" class="form-control" required="required" />
+                            <span class="form-label">Email</span>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="subject" id="" cols="30" rows="10" class="form-control" required="required"></textarea>
+                            <span class="form-label">Write</span>
+                        </div>
+                        <button type="submit">Send</button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,98 @@
+*{
+    margin: 5px;
+    padding: 5px;
+    box-sizing: border-box;
+}
+body
+    {
+        background-image: url("static/images/dk.jpg");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        
+    }
+    
+ 
+.containner{
+    max-width: 900px;
+    margin: 0px auto;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+.apply-box{
+    max-width: 600px;
+    padding: 20px;
+    margin: 0px auto;
+    margin-top: 10px;
+    border: 5px solid black;
+    background: rgba(54, 52, 52, 0.423);
+    box-shadow: 0 30px 100px rgba(7, 0, 0, 0.1);
+    border-radius: 50px;
+}
+.title-small{
+    font-size: 20px;
+
+}
+.form-container  {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+    
+}
+.form-conrol{
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+    font-size: 20px;
+    margin-bottom: 2px;
+    font-weight: bolder;
+    color:white;
+}
+input,select,textarea{
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+}
+input:focus{
+    outline-color: royalblue;
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+button{
+    background-color: #0A2258;
+    border: transparent solid 2px;
+    color: white;
+    border-radius:10px;
+    width: 200px; /* Set the width of the button */
+    height: 50px; /* Set the height of the button */
+    padding: 10px 20px; /* Adjust padding for better visual appearance */
+    font-size: 18px;
+
+}
+button:hover{
+    
+    background-color: #f18930;
+    border: 2px solid black;
+    transition: 0.3s ease-out;
+    cursor: pointer;
+}
+.textarea-control{
+    grid-column: 1/ span 2;
+
+}
+.textarea-control textarea{
+    width: 100%;
+
+}
+

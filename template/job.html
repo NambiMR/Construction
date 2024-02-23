@@ -1,0 +1,81 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Application</title>
+    <link rel="stylesheet" href="{% static 'css/job.css' %}">
+
+
+</head>
+<body>
+
+     <div class="container">
+        <div class="apply-box">
+            <h1>Job Application</h1>
+            <form method="POST">
+                {% csrf_token%}
+                <div class="from-container">
+                    <div class="form-conrol">
+                        <input type="text" id="first-name " name="name" placeholder="Enter name">
+
+                    </div>
+                    <div class="form-conrol">
+                        <input type="text" id="first-name " name="age" placeholder="Enter Age">
+
+                    </div>
+                    <div class="form-conrol">
+                        <input type="text" id="first-name " name="email" placeholder="Enter Email">
+
+                    </div>
+                    <div class="form-conrol">
+                        <input type="text" id="first-name " name="mobile" placeholder="Enter Mobil No">
+
+                    </div>
+                    <div class="form-conrol">
+                        
+                        <select name="role" id="jobe-role">
+                            <option value="" disabled selected>Select Job Role</option>
+                            <option value="frontend">Engineer</option>
+                            <option value="frontend">Super Visor</option>
+                            <option value="frontend">Mason</option>
+                            <option value="frontend">Carpentor</option>
+                            <option value="frontend">Electrician</option>
+                            <option value="frontend">Plumber</option>
+                            <option value="frontend">Helper</option>
+                        </select>
+                    </div>
+                    <div class="form-conrol">
+                        
+                        <input type="text" id="first-name " name="experience" placeholder="Experience">
+
+                    </div>
+                    <div class="form-conrol">
+                        
+                        <input type="text" id="first-name " name="city" placeholder="Enter City">
+
+                    </div>
+                    <div class="form-conrol">
+                        
+                        <input type="number" id="first-name " name="pincode" placeholder="Pincode">
+
+                    </div>
+                    <div class="form-conrol">
+                        <label for="first-name">Registration Date</label>
+                        <input type="date" id="first-name " name="date" value="2024-10-1026">
+
+                    </div>
+                    <div class="button-container">
+                        <button type="submit">Apply Now</button>
+                    </div>
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+    
+</body>
+</html>

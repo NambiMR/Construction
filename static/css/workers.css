@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+    body { 
+        
+        overflow-x: hidden;
+        
+    } 
+
+
+    #formContainer { 
+        margin-bottom: 20px; 
+    } 
+    button { 
+        margin: 10px; 
+        padding: 8px 16px; 
+        background-color: #0A2558; 
+        color: #fff; 
+        border: none; 
+        border-radius: 4px; 
+        cursor: pointer; 
+    } 
+    .edit{
+        background-color: blue;
+        border-radius: 5px;
+    }
+    .edit:hover{
+        background-color: rgb(1, 1, 148);
+    }
+    .delete{
+        background-color: rgb(255, 0, 0);
+        border-radius: 5px;
+    }
+    .delete:hover{
+        background-color: rgb(179, 3, 3);
+    }
+
+    table { 
+        border-collapse: collapse; 
+        width: 80%; 
+        margin: 4rem auto;
+    
+    } 
+
+    th, 
+    td { 
+        border: 1px solid #002077; 
+        padding: 8px; 
+
+    } 
+
+    th { 
+        background-color: #0A2558; 
+        color: #fff; 
+    } 
+    .Action{
+        width: 200px;
+    }
+    
+    .logo{
+        font-size: 30pt;
+    }
+    
+    .add{
+        position: relative;
+        top: 50px;
+        left: 132px;
+        border-radius: 5px;
+
+    }
+    
