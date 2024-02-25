@@ -127,7 +127,7 @@ color: #f18930;
     width: 130px;
     height: 50px;
     border-radius: 20px;
-    background: rgb(231, 128, 128);
+    background: rgb(255, 103, 103);
     color: white;
     box-shadow: 7px 5px 5px black;
     animation: change-background 5s linear infinite;
@@ -135,10 +135,10 @@ color: #f18930;
 }
 @keyframes change-background {
    20% {
-      background: #d49b91;
+      background: #ff6a4f;
     }
     50% {
-      background: #ff2600;
+      background: #ff5132;
     }
     100% {
       background: #ff2600;
