@@ -5,7 +5,7 @@
 }
 body
     {
-        background-image: url("static/images/dk.jpg");
+        background-color: #f18930;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
@@ -16,11 +16,12 @@ body
 .containner{
     max-width: 900px;
     margin: 0px auto;
+    
 }
 h1{
     display: flex;
     justify-content: center;
-    color: white;
+    color: #f18930;
 }
 .apply-box{
     max-width: 600px;
@@ -28,7 +29,7 @@ h1{
     margin: 0px auto;
     margin-top: 10px;
     border: 5px solid black;
-    background: rgba(54, 52, 52, 0.423);
+    background:#0A2258;
     box-shadow: 0 30px 100px rgba(7, 0, 0, 0.1);
     border-radius: 50px;
 }
@@ -41,7 +42,6 @@ h1{
     display: grid;
     grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
     gap:20px;
-    
 }
 .form-conrol{
     display: flex;
@@ -70,7 +70,7 @@ input:focus{
     margin-top: 20px;
 }
 button{
-    background-color: #0A2258;
+    background-color: #f18930;
     border: transparent solid 2px;
     color: white;
     border-radius:10px;

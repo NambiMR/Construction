@@ -50,7 +50,7 @@
     height: auto;  
 }
 .nav{
-    margin-left: 500px;
+    margin-left: 400px;
 }
 .nav a{
     color: rgb(250, 247, 247);
@@ -111,6 +111,7 @@ color: #f18930;
     font-size: 40px;
     font-weight: 150;
     line-height: 50px;
+    color: #0A2558;
 }
 
 .content h1 span{
@@ -201,16 +202,16 @@ color: #f18930;
 }
 .welcome-text h1{
     font-size: 40px;
-    color: rgb(255, 0, 0);
+    color: #f18930;
 }
 .welcome-text p{
     font-size: 1.5rem;
     padding:15px 0;
-    color: white;
+    color: #0A2558;
 }
 .welcome-text a{
     padding: 15px 10px;
-    background: rgb(248, 0, 0);
+    background: #f18930;
     color: rgb(0, 0, 0);
     border-radius: 8px;
     text-decoration: none;
