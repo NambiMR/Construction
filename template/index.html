@@ -18,10 +18,10 @@
             <img src="{% static 'images\logo1.png' %}" alt="Logo">
         </a>
         <navbar class="nav">
-            <a href="#Home"><i class="fas fa-home"></i> HOME</a>
+            <a href="Home"><i class="fas fa-home"></i> HOME</a>
             <a href="#About"><i class="fas fa-info-circle"></i> ABOUT US</a>
             <a href="#Services"><i class="fas fa-cogs"></i> SERVICES</a>
-            <a href="Project"><i class="fas fa-folder"></i> PROJECTS</a>
+            <a href="#Project"><i class="fas fa-folder"></i> PROJECTS</a>
             <a href="/contact"><i class="fas fa-envelope"></i> CONTACT US</a>
             <!-- <a href="/quote"><i class="fas fa-envelope"></i> Get a Quote</a> -->
             <a href="/job"><i class="fas fa-briefcase"></i> GET A JOB</a>
@@ -165,7 +165,8 @@
             </div>
         </div>
     </div>
-    
+    {% include 'footer.html' %}
+
     <script src="{% static 'js\index.js' %}"></script>
 </body>
 </html>
