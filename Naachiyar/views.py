@@ -101,17 +101,26 @@ def job(request):
 def admin(request):
     return render (request,"admin.html")
 
-def worker(request):
-    if request.method=="POST":
-        worker=Worker()
-        name=request.POST.get("name")
-        age=request.POST.get("age")
-        contact=request.POST.get("contact")
-        designation=request.POST.get("designation")
-        worker.name=name
-        worker.age=age
-        worker.contact=contact
-        worker.designation=designation
+from django.shortcuts import render, redirect
+from .models import Worker
+
+def show_workers(request):
+    workers = Worker.objects.all()
+    return render(request, "workers.html", {'workers': workers})
+
+def add_worker(request):
+    if request.method == "POST":
+        worker = Worker()
+        name = request.POST.get("name")
+        age = request.POST.get("age")
+        contact = request.POST.get("contact")
+        designation = request.POST.get("designation")
+
+        worker.name = name
+        worker.age = age
+        worker.contact = contact
+        worker.designation = designation
         worker.save()
-        return render(request,"workers.html")
-    return render(request,"workers.html")
+        
+        return redirect('Naachiyar:show_workers')  
+    return render(request, "workers.html")
