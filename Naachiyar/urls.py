@@ -27,6 +27,11 @@ urlpatterns = [
     path('job/',views.job,name='job'),
     path('feedback/',views.feedback,name='feedback'),
     path('nambi/',views.admin,name='admin'),
+<<<<<<< HEAD
     path('worker/',views.worker,name='worker'),
     path('demo/',views.demo,name='demo'),
+=======
+    path('worker/',views.show_workers,name='show_workers'),
+    path('add_worker/',views.add_worker,name='add_worker')
+>>>>>>> 8b354f6c965bbefaee23553e9d30edaad2611000
 ]
