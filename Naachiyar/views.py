@@ -102,16 +102,25 @@ def admin(request):
     return render (request,"admin.html")
 
 def worker(request):
-    if request.method=="POST":
-        worker=Worker()
-        name=request.POST.get("name")
-        age=request.POST.get("age")
-        contact=request.POST.get("contact")
-        designation=request.POST.get("designation")
-        worker.name=name
-        worker.age=age
-        worker.contact=contact
-        worker.designation=designation
+    if request.method == "POST":
+        name = request.POST.get("name")
+        age = request.POST.get("age")
+        contact = request.POST.get("contact")
+        designation = request.POST.get("designation")
+        
+        worker = Worker(name=name, age=age, contact=contact, designation=designation)
         worker.save()
-        return render(request,"workers.html")
-    return render(request,"workers.html")
+        
+        workers = Worker.objects.all()
+        return render(request, "workers.html", {'workers': workers})
+    
+    return render(request, "workers.html")
+
+
+def demo(request):
+    workers = Worker.objects.all()
+    return render(request,"workers.html", {'workers': workers})
+
+
+    
+
