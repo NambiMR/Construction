@@ -25,6 +25,7 @@ urlpatterns = [
     path('contact/',views.contact,name='contact'),
     path('quote/',views.quote,name='quote'),
     path('job/',views.job,name='job'),
+    path('feedback/',views.feedback,name='feedback'),
     path('nambi/',views.admin,name='admin'),
     path('worker/',views.worker,name='worker'),
     path('demo/',views.demo,name='demo'),

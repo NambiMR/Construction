@@ -1,6 +1,6 @@
 from django.shortcuts import render ,redirect
 from django.http import HttpResponse
-from . models import user,Contact,Quote,Job,Worker
+from . models import user,Contact,Quote,Job,Worker,Feedback
 
 def signup(request):
     if request.method=='POST':
@@ -97,6 +97,23 @@ def job(request):
         job.save()
         return render(request,"index.html")
     return render(request,"job.html")
+
+def feedback(request):
+    if request.method=="POST":
+        feedback=Feedback()
+        Name=request.POST.get("Name")
+        Email=request.POST.get("Email")
+        Age=request.POST.get("Age")
+        Phone=request.POST.get("Phone")
+        Message=request.POST.get("Message")
+        feedback.Name=Name
+        feedback.Email=Email
+        feedback.Age=Age
+        feedback.Phone=Phone
+        feedback.Message=Message
+        feedback.save()
+        return render(request,"index.html")
+    return render(request,"feedback.html")
 
 def admin(request):
     return render (request,"admin.html")
