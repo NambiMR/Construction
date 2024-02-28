@@ -37,6 +37,8 @@ class Job(models.Model):
         date=models.CharField(max_length=50)
         def __str__(self):
             return self.name
+    
+
         
 class Feedback(models.Model):
         Name=models.CharField(max_length=50)
@@ -54,5 +56,13 @@ class Worker(models.Model):
         designation=models.CharField(max_length=250)
         def __str__(self):
           return self.name
+        
+
+class Employee(models.Model):
+        name=models.CharField(max_length=100)
+        age=models.IntegerField()
+        contact=models.CharField(max_length=10)
+        designation=models.CharField(max_length=250)
+        
         
 

@@ -98,6 +98,8 @@ def job(request):
         return render(request,"index.html")
     return render(request,"job.html")
 
+
+
 def feedback(request):
     if request.method=="POST":
         feedback=Feedback()
@@ -118,12 +120,12 @@ def feedback(request):
 def admin(request):
     return render (request,"admin.html")
 
-<<<<<<< HEAD
-def worker(request):
-    if request.method == "POST":
-=======
+
 from django.shortcuts import render, redirect
 from .models import Worker
+
+def emp(request):
+    return render(request,'emp.html')
 
 def show_workers(request):
     workers = Worker.objects.all()
@@ -132,12 +134,12 @@ def show_workers(request):
 def add_worker(request):
     if request.method == "POST":
         worker = Worker()
->>>>>>> 8b354f6c965bbefaee23553e9d30edaad2611000
+
         name = request.POST.get("name")
         age = request.POST.get("age")
         contact = request.POST.get("contact")
         designation = request.POST.get("designation")
-<<<<<<< HEAD
+
         
         worker = Worker(name=name, age=age, contact=contact, designation=designation)
         worker.save()
@@ -148,21 +150,21 @@ def add_worker(request):
     return render(request, "workers.html")
 
 
-def demo(request):
+""" def demo(request):
     workers = Worker.objects.all()
-    return render(request,"workers.html", {'workers': workers})
-
-
-    
-
-=======
-
-        worker.name = name
-        worker.age = age
-        worker.contact = contact
-        worker.designation = designation
-        worker.save()
+    return render(request, "workers.html", {'workers': workers})
+    worker.name = name
+    worker.age = age
+    worker.contact = contact
+    worker.designation = designation
+    worker.save()
         
-        return redirect('Naachiyar:show_workers')  
+    return redirect('Naachiyar:show_workers')  
     return render(request, "workers.html")
->>>>>>> 8b354f6c965bbefaee23553e9d30edaad2611000
+
+ """
+
+
+def Feedback_show(request):
+    feedback= Feedback.objects.all()
+    return render(request, "adminfeedback.html", {'feedback': feedback})

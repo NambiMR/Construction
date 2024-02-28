@@ -1,0 +1,42 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>User Ratings</title>
+<link rel="stylesheet" href="{% static 'css/adminfeedback.css' %}">
+</head>
+<body>
+
+<h2 align="center">User Ratings</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Ratings</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Age</th>
+            <th>Mobile</th>
+            <th>Message</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for fb in feedback %}
+        <tr>
+           
+            <td>{{ fb.Name }}</td>
+            <td>{{ fb.Email }}</td>
+            <td>{{ fb.Age }}</td>
+            <td>{{ fb.Phone}}</td>
+            <td>{{ fb.Message}}</td>
+
+            <td>Edit / Delete</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>
