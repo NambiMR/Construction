@@ -23,6 +23,7 @@ urlpatterns = [
     path('login/', views.login, name='login'),
     path('', views.home, name='home'),
     path('contact/',views.contact,name='contact'),
+    path('projects/',views.projects,name='projects'),
     path('quote/',views.quote,name='quote'),
     path('job/',views.job,name='job'),
     path('feedback/',views.feedback,name='feedback'),
@@ -32,5 +33,6 @@ urlpatterns = [
     path('worker/',views.show_workers,name='show_workers'),
     path('add_worker/',views.add_worker,name='add_worker'),
     path('emp/',views.emp,name='emp'),
-    path('adminfeedback/',views.Feedback_show,name='adminfeedback')
+    path('adminfeedback/',views.Feedback_show,name='adminfeedback'),
+    path('adminquote/',views.Quote_show,name='adminquote')
 ]

@@ -1,0 +1,47 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin Quote</title>
+<link rel="stylesheet" href="{% static 'css/adminfeedback.css' %}">
+</head>
+<body>
+
+<h2 align="center">Quotes</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>Description</th>
+            <th>Budget</th>
+            <th>Starting Date</th>
+            <th>Ending Date</th>
+            <th>Location</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for q in quote %}
+        <tr>
+           
+            <td>{{ q.name }}</td>
+            <td>{{ q.email }}</td>
+            <td>{{ q.phone}}</td>
+            <td>{{ q.description }}</td>
+            <td>{{ q.budget}}</td>
+            <td>{{ q.s_date}}</td>
+            <td>{{ q.e_date}}</td>
+            <td>{{ q.location}}</td>
+            <td>Edit / Delete</td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+</body>
+</html>

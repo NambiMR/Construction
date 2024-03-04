@@ -36,6 +36,8 @@ def login(request):
         
 def home(request):
     return render (request,"index.html")
+def projects(request):
+    return render (request,"projects.html")
 
 def contact(request):
     if request.method=="POST":
@@ -168,3 +170,7 @@ def add_worker(request):
 def Feedback_show(request):
     feedback= Feedback.objects.all()
     return render(request, "adminfeedback.html", {'feedback': feedback})
+
+def Quote_show(request):
+    quote= Quote.objects.all()
+    return render(request, "adminquote.html", {'quote': quote})

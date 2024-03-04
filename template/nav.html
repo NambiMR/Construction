@@ -1,0 +1,44 @@
+<!-- base.html -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Website{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
+</head>
+<body>
+    <div class="banner" id="Home">
+        <header class="header">
+            <a href="" id="logo">
+                <img src="{% static 'images/logo1.png' %}" alt="Logo">
+            </a>
+            <navbar class="nav">
+                <a href=""><i class="fas fa-home"></i> HOME</a>
+                <a href="#About"><i class="fas fa-info-circle"></i> ABOUT US</a>
+                <a href="#Services"><i class="fas fa-cogs"></i> SERVICES</a>
+                <a href="/projects"><i class="fas fa-folder"></i> PROJECTS</a>
+                <a href="/contact"><i class="fas fa-envelope"></i> CONTACT US</a>
+                <a href="/job"><i class="fas fa-briefcase"></i> GET A JOB</a>
+            </navbar>        
+            <div class="icon-header">
+                <div id="menu-bar" class="fas fa-bars"></div>
+                <div id="search-bar" class="fas fa-search"></div>
+            </div>
+            <div class="search-form">
+                <input type="search" id="search-form" placeholder="search here">
+            </div>
+        </header>
+
+        <div class="content">
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>
