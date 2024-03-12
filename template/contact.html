@@ -7,9 +7,31 @@
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'css/contact.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
-
+    <script src="{%static 'js/index.js'%}"></script>
 </head>
 <body>
+
+    <div class="banner" id="Home">
+    
+        <header class="header">
+        <a href="/" id="logo">
+            <img src="{% static 'images\logo1.png' %}" alt="Logo">
+        </a>
+        <navbar class="nav">
+            <a href="/"><i class="fas fa-home"></i> HOME</a>
+            <a href="/projects"><i class="fas fa-folder"></i> PROJECTS</a>
+            <a href="/quote"><i class="fas fa-file-alt"></i> GET A QUOTE</a>
+            <a href="/job"><i class="fas fa-briefcase"></i> GET A JOB</a>
+        </navbar>        
+        <div class="icon-header">
+            <div id="menu-bar" class="fas fa-bars"></div>
+            <div id="search-bar" class="fas fa-search"></div>
+        </div>
+        <div class="search-form">
+            <input type="search" id="search-form" placeholder="search here">
+        </div>
+    </header>
+    </div>
     
     <div class="form-container">
         <div class="wrapper">

@@ -11,6 +11,7 @@ body{
     min-height: 100vh;
     position: relative;
     overflow: hidden;
+    padding: 10px;
     
 }
 body::after{
@@ -20,8 +21,75 @@ body::after{
     left: 0;
     width: 100%;
     height: 100%;
-    background: #f18930;
+    background: #c9c8c6;
     z-index: -8;
+}
+
+
+.header{
+    padding: 20px;
+    position: fixed;
+    left: 0;
+    right:0 ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background:#0A2558;
+    height: 100px;
+    z-index: 999;
+    margin-top: -10px;
+    
+
+}
+#logo img {
+    width: 130px; /* Adjust the width of the logo */
+    height: auto;  
+}
+.nav{
+    margin-left: 400px;
+    
+
+}
+.nav a{
+    color: rgb(250, 247, 247);
+    font-size: 20px;
+    margin-left: 70px;
+    text-decoration: none;
+}
+.nav a:hover{
+color: #f18930;
+}
+.icon-header div{
+    color: rgb(255, 253, 253);
+    margin-left: 10px;
+    font-size: 20px;
+    cursor: pointer;
+}
+.icon-header div:hover{
+    color: #f18930;
+}
+#menu-bar{
+    display: none;
+}
+.nav.active{
+    top: 100%;
+}
+.search-form{
+    width: 40%;
+    position: absolute;
+    top:-110%;
+    right: 2rem;
+}
+
+.search-form input{
+    width: 100%;
+    padding: 1rem;
+    border-radius: 14px;
+    border: 1px solid rgb(249, 249, 249);
+    box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
+}
+.search-form.active{
+    top: 110%;
 }
 .form-container{
     display: flex;
@@ -29,7 +97,7 @@ body::after{
     justify-content: center;
     height: 610px;
     width: 1350px;
-    margin: 20px 20px;
+    margin: 130px 80px;
 
 }
 .wrapper{

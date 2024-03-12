@@ -1,4 +1,8 @@
-table {
+
+
+.table {
+    padding: 30px;
+    
     width: 100%;
     border-collapse: collapse;
 }
@@ -9,4 +13,8 @@ th, td {
 }
 th {
     background-color: #f2f2f2;
+}
+.container{
+padding: 90px;
+
 }

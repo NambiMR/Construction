@@ -174,3 +174,6 @@ def Feedback_show(request):
 def Quote_show(request):
     quote= Quote.objects.all()
     return render(request, "adminquote.html", {'quote': quote})
+
+def footer(request):
+    return render(request,'footer.html')

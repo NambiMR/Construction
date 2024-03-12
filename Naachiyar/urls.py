@@ -34,5 +34,6 @@ urlpatterns = [
     path('add_worker/',views.add_worker,name='add_worker'),
     path('emp/',views.emp,name='emp'),
     path('adminfeedback/',views.Feedback_show,name='adminfeedback'),
-    path('adminquote/',views.Quote_show,name='adminquote')
+    path('adminquote/',views.Quote_show,name='adminquote'),
+    path('footer/',views.footer,name='footer')
 ]

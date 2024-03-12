@@ -6,8 +6,25 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="{% static 'css/projects.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
 </head>
 <body>
+    
+    <header class="header">
+        <a href="/" id="logo">
+            <img src="{% static 'images\logo1.png' %}" alt="Logo">
+        </a>
+        <navbar class="nav">
+            <a href="/"><i class="fas fa-home"></i> HOME</a>
+            <a href="/contact"><i class="fas fa-envelope"></i> CONTACT US</a>
+            <a href="/projects"><i class="fas fa-folder"></i> PROJECTS</a>
+            <a href="/job"><i class="fas fa-file-alt"></i> GET A QUOTE</a>
+            <a href="/job"><i class="fas fa-briefcase"></i> GET A JOB</a>
+            
+        </navbar>        
+    </header>
+    
+
     <div class="lists">
     <div class="container">
         <div class="card" style="--clr:#009688">

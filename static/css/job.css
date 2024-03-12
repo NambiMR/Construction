@@ -5,18 +5,81 @@
 }
 body
     {
-        background-color: #f18930;
+        background-color:#c9c8c6;
         background-size: cover;
         background-repeat: no-repeat;
         background-position: center center;
-        
+        overflow: hidden;
     }
+    .header{
+        padding: 40px;
+        position: fixed;
+        left: 0;
+        top: 0;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        width: 100%;
+        background:#0A2558;
+        height: 70px;
+        z-index: 999;    
+    }
+    #logo img {
+        width: 130px; /* Adjust the width of the logo */
+        height: auto;  
+    }
+    .nav{
+        margin-left: 400px;
+        
+    
+    }
+    .nav a{
+        color: rgb(250, 247, 247);
+        font-size: 20px;
+        margin-left: 30px;
+        text-decoration: none;
+    }
+    .nav a:hover{
+    color: #f18930;
+    }
+    .icon-header div{
+        color: rgb(255, 253, 253);
+        margin-left: 10px;
+        font-size: 20px;
+        cursor: pointer;
+    }
+    .icon-header div:hover{
+        color: #f18930;
+    }
+    #menu-bar{
+        display: none;
+    }
+    .nav.active{
+        top: 100%;
+    }
+    .search-form{
+        width: 40%;
+        position: absolute;
+        top:-110%;
+        right: 2rem;
+    }
+    
+    .search-form input{
+        width: 100%;
+        padding: 1rem;
+        border-radius: 14px;
+        border: 1px solid rgb(249, 249, 249);
+        box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
+    }
+    .search-form.active{
+        top: 110%;
+    }
+    
     
  
 .containner{
     max-width: 900px;
     margin: 0px auto;
-    
 }
 h1{
     display: flex;
@@ -24,13 +87,14 @@ h1{
     color: #f18930;
 }
 .apply-box{
-    max-width: 600px;
+    max-width: 800px;
     padding: 20px;
     margin: 0px auto;
-    margin-top: 10px;
+    margin-top: 40px;
     border: 5px solid black;
     background:#0A2258;
     box-shadow: 0 30px 100px rgba(7, 0, 0, 0.1);
+    transform: scale(0.85) translateY(-55px);
     border-radius: 50px;
 }
 .title-small{
