@@ -154,10 +154,14 @@ def show_project(request):
     project = Project.objects.all()
     return render(request, "project.html", {'project': project})
 
+def delete_project (request , id):
+    project=Project.objects.get(id=id)
+    project.delete()
+    return redirect("/show_project")
+
 def add_project(request):
     if request.method == "POST":
         project = Project()
-
         project_name = request.POST.get("pname")
         client_name = request.POST.get("cname")
         contact = request.POST.get("contact")

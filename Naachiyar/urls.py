@@ -30,6 +30,7 @@ urlpatterns = [
     path('nambi/',views.admin,name='admin'),
     path('worker/',views.show_workers,name='show_workers'),
     path('project/',views.show_project,name='show_project'),
+    path('delete_project/<int:id>/', views.delete_project, name='delete_project'),
     path('add_worker/',views.add_worker,name='add_worker'),
     path('add_project/',views.add_project,name='add_project'),
     path('adminfeedback/',views.Feedback_show,name='adminfeedback'),
