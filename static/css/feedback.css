@@ -1,5 +1,5 @@
 body {
-    background-color:#c9c8c6;
+    background-image: url();
     background-size: cover;
 }
 
@@ -11,14 +11,13 @@ body {
 
 h1 {
     font-size: 70px;
-    color: #f18930;
+    color: black;
     text-align: center;
     border-bottom: 2px solid purple;
 }
 
 table {
     font-size: 30px;
-    color: #f18930;
 }
 
 td {
@@ -38,10 +37,11 @@ td {
 }
 
 .btn {
-    width: 830px;
+    width: 100px;
     height: 50px;
-    background-color: #f18930;
+    background-color: rgb(235, 33, 46);
     border-radius: 8px;
     font-size: 20px;
     color: white;
+    margin-left: 360px;
 }

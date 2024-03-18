@@ -28,12 +28,11 @@ urlpatterns = [
     path('job/',views.job,name='job'),
     path('feedback/',views.feedback,name='feedback'),
     path('nambi/',views.admin,name='admin'),
-    #path('worker/',views.worker,name='worker'),
-    #path('demo/',views.demo,name='demo'),
     path('worker/',views.show_workers,name='show_workers'),
+    path('project/',views.show_project,name='show_project'),
     path('add_worker/',views.add_worker,name='add_worker'),
-    path('emp/',views.emp,name='emp'),
+    path('add_project/',views.add_project,name='add_project'),
     path('adminfeedback/',views.Feedback_show,name='adminfeedback'),
     path('adminquote/',views.Quote_show,name='adminquote'),
-    path('footer/',views.footer,name='footer')
+    path('footer/',views.footer,name='footer'),
 ]

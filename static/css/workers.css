@@ -1,9 +1,10 @@
 .container{
-    padding:50px
+    padding:80px
 }
 .workers-table {
     width: 50%;
     border-collapse: collapse;
+    padding: 30px;
 }
 
 .workers-table th, .workers-table td {

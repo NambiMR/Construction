@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Management</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+  
+  <div class="container mt-5">
+    <h2>User Management</h2>
+    <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#addUserModal">Add New User</button>
+    
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Sample data -->
+        <tr>
+          <td>John Doe</td>
+          <td>john@example.com</td>
+          <td>
+            <button type="button" class="btn btn-warning btn-sm" onclick="editUser(this)">Edit</button>
+            <button type="button" class="btn btn-danger btn-sm" onclick="deleteUser(this)">Delete</button>
+          </td>
+        </tr>
+        <tr>
+          <td>Jane Smith</td>
+          <td>jane@example.com</td>
+          <td>
+            <button type="button" class="btn btn-warning btn-sm" onclick="editUser(this)">Edit</button>
+            <button type="button" class="btn btn-danger btn-sm" onclick="deleteUser(this)">Delete</button>
+          </td>
+        </tr>
+        <!-- Add more rows as needed -->
+      </tbody>
+    </table>
+  </div>
+
+  <!-- Add User Modal -->
+  <div class="modal fade" id="addUserModal" tabindex="-1" role="dialog" aria-labelledby="addUserModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addUserModalLabel">Add New User</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <!-- Form for adding new user -->
+          <form id="addUserForm">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" class="form-control" id="name" placeholder="Enter name">
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" class="form-control" id="email" placeholder="Enter email">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Save changes</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS and dependencies -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+  <script>
+    // Function to edit user
+    function editUser(button) {
+      var row = button.closest('tr');
+      var name = row.cells[0].innerText;
+      var email = row.cells[1].innerText;
+      document.getElementById('name').value = name;
+      document.getElementById('email').value = email;
+      $('#addUserModal').modal('show');
+    }
+
+    // Function to delete user
+    function deleteUser(button) {
+      var row = button.closest('tr');
+      row.remove();
+    }
+  </script>
+</body>
+</html>

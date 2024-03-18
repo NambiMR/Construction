@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="{% static 'css/feedback.css' %}">
+    <link rel="stylesheet" href="{% static 'css/feedback.css' %}" />
 </head>
 <body>
     <div class="wrap">
@@ -16,9 +16,9 @@
                 <tr>
                     <td colspan="2">
                         <label>How do you rate your overall expericence</label><br/>
-                        <input type="radio" name="rate" value="bad">Bad
-                        <input type="radio" name="rate" value="average">Average
-                        <input type="radio" name="rate" value="good">Good
+                        <input type="radio" name="Rate" value="bad">Bad
+                        <input type="radio" name="Rate" value="average">Average
+                        <input type="radio" name="Rate" value="good">Good
                         
                     </td>
                 </tr>
@@ -50,12 +50,12 @@
                         <td colspan="2">
                             <label>Message*</label>
                             <br/>
-                            <textarea name="Message" class="textarea"></textarea>
+                            <textarea class="textarea" name="Message"></textarea>
 
                         </td>
                     </tr>
                     <tr>
-                        <td><button type="submit" class="btn">Submit</button></td>
+                        <td colspan="2"><button type="submit" class="btn">Submit</button></td>
                     </tr>
 
             </form>

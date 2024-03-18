@@ -110,183 +110,65 @@
           </div>
         </nav>
         <div class="container">
-    <h1 align="center">Workers Table</h1>
-   
-
-    <!-- Modal -->
-  <!--   <div id="myModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeModal()">&times;</span>
-            <form id="addUserForm" method="post">
-                {% csrf_token %}
-                <label for="name">Name:</label>
-                <input type="text" id="name" name="name" required><br>
-                <label for="age">Age:</label>
-                <input type="number" id="age" name="age" required><br>
-                <label for="contact">Contact:</label>
-                <input type="text" id="contact" name="contact" required><br>
-                <label for="designation">Designation:</label>
-                <input type="text" id="designation" name="designation" required><br>
-                <button type="submit">Add User</button>
-            </form>
-        </div>
-    </div>
-   -->  
-    <table class="workers-table">
-        <thead>
-            <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Age</th>
-                <th>Contact</th>
-                <th>Designation</th>
-                <th>Action</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for worker in workers %}
-                <tr>
-                    <td>{{ worker.id }}</td>
-                    <td>{{ worker.name }}</td>
-                    <td>{{ worker.age }}</td>
-                    <td>{{ worker.contact }}</td>
-                    <td>{{ worker.designation }}</td>
-                    <td>Edit / Delete</td>
-                </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-  </div>
-    <script src="{% static 'js/workers.js' %}"></script>
-
-</body>
-
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-    
-</head> 
-
-<body> 
-	<div class="add" >
-		<button type="button" class="add" data-bs-toggle="modal" data-bs-target="#addUserModal" style="position: relative; top: 5px;left: 5px">Add </button>
-	</div>
-	<table id="outputTable" align="center"> 
-		
-		<tr> 
-			<th>Id</th> 
-			<th>Name</th> 
-			<th>Age</th> 
-			<th>Contact</th> 
-			<th>Desgination</th> 
-			<th class="Action">Action</th> 
-		</tr> 
-		<!-- <tr>
-			<td>1</td>
-			<td>guli</td>
-			<td>20</td>
-			<td>3947589338</td>
-			<td>grryfryr</td>
-			<td><button class="edit">Edit </button>
-			<button class="delete">Delete </button></td>
-		</tr> -->  
-	</table> 
-
-    <div class="modal" tabindex="-1" role="dialog" id="addUserModal">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-            
-                    <h4 class="modal-title">Add </h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form method="POST" action="{% url 'Naachiyar:add_worker' %}">
-                        {% csrf_token %}
-                        <h4 class="modal-title">Add </h4>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="addStaffname" class="form-label">Name</label>
-                        <input type="text" name="name" class="form-control" id="addStaffname" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="addDepartment" class="form-label">Age</label>
-                        <input type="text" name="age" class="form-control" id="addDepartment" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="addAdvisor" class="form-label">Contact</label>
-                        <input type="text" name="contact" class="form-control" id="addAdvisor" required>
-                    </div>  
-                    <div class="mb-3">
-                        <label for="addAdvisor" class="form-label">Designation</label>
-                        <input type="text" name="designation" class="form-control" id="addAd" required>
-                    </div>   
-                </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-success">Add</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                    </form>
-        </div>
-    </div>     
-    <div class="modal" tabindex="-1" role="dialog" id="editModal">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Edit Staff Details</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <form>
-                        <div class="mb-3">
-                            <label for="editClassName" class="form-label">Class Name</label>
-                            <input type="text" class="form-control" id="editClassName">
-                        </div>
-                        <div class="mb-3">
-                            <label for="editDepartment" class="form-label">Department</label>
-                            <input type="text" class="form-control" id="editDepartment">
-                        </div>
-                        <div class="mb-3">
-                            <label for="editAdvisor" class="form-label">Advisor</label>
-                            <input type="text" class="form-control" id="editAdvisor">
-                        </div>
-                    </form>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-success" onclick="updateClassDetails()">Update</button>
-                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Cancel</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal" tabindex="-1" role="dialog" id="deleteConfirmationModal">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h4 class="modal-title">Delete Confirmation</h4>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <p>Are you sure you want to delete this Staff?</p>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" onclick="deleteClass()">Delete</button>
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script>
-        let sidebar = document.querySelector(".sidebar");
-        let sidebarBtn = document.querySelector(".sidebarBtn");
-        sidebarBtn.onclick = function () {
-          sidebar.classList.toggle("active");
-          if (sidebar.classList.contains("active")) {
-            sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
-          } else sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
-        };
-      </script>
-    
-	
-</body> 
-
-</html>
+          <h1 align="center">Workers Table</h1>
+          <div id="myModal" class="modal">
+              <div class="modal-content">
+                  <span class="close" onclick="closeModal()">&times;</span>
+                  <form id="addUserForm" method="post">
+                      {% csrf_token %}
+                      <label for="name">Name:</label>
+                      <input type="text" id="name" name="name" required><br>
+                      <label for="age">Age:</label>
+                      <input type="number" id="age" name="age" required><br>
+                      <label for="contact">Contact:</label>
+                      <input type="text" id="contact" name="contact" required><br>
+                      <label for="designation">Designation:</label>
+                      <input type="text" id="designation" name="designation" required><br>
+                      <button type="submit">Add User</button>
+                  </form>
+              </div>
+          </div>
+      
+          <table class="workers-table">
+              <thead>
+                  <tr>
+                      <th>ID</th>
+                      <th>Name</th>
+                      <th>Age</th>
+                      <th>Contact</th>
+                      <th>Designation</th>
+                      <th>Action</th>
+                  </tr>
+              </thead>
+              <tbody>
+                  {% for worker in workers %}
+                  <tr>
+                      <td>{{ worker.id }}</td>
+                      <td>{{ worker.name }}</td>
+                      <td>{{ worker.age }}</td>
+                      <td>{{ worker.contact }}</td>
+                      <td>{{ worker.designation }}</td>
+                      <td>
+                        <button type="button" class="btn btn-warning btn-sm" onclick="editUser(this)">Edit</button>
+                        <button type="button" class="btn btn-danger btn-sm" onclick="deleteUser(this)">Delete</button>
+                      </td>
+                  </tr>
+                  {% endfor %}
+              </tbody>
+          </table>
+          <div class="add">
+              <button type="button" class="add" data-bs-toggle="modal" data-bs-target="#myModal" style="position: relative; top: 5px;left: 5px">Add </button>
+          </div>
+      </div>
+          <script src="{% static 'js/workers.js' %}"></script>
+          <script>
+            let sidebar = document.querySelector(".sidebar");
+            let sidebarBtn = document.querySelector(".sidebarBtn");
+            sidebarBtn.onclick = function () {
+              sidebar.classList.toggle("active");
+              if (sidebar.classList.contains("active")) {
+                sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+              } else sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+            };
+          </script>
+      </body> 

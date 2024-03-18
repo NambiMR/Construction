@@ -1,6 +1,6 @@
 from django.shortcuts import render ,redirect
 from django.http import HttpResponse
-from . models import user,Contact,Quote,Job,Worker,Feedback
+from . models import user,Contact,Quote,Job,Worker,Project,Feedback
 
 def signup(request):
     if request.method=='POST':
@@ -110,11 +110,13 @@ def feedback(request):
         Age=request.POST.get("Age")
         Phone=request.POST.get("Phone")
         Message=request.POST.get("Message")
+        Rate=request.POST.get("Rate")
         feedback.Name=Name
         feedback.Email=Email
         feedback.Age=Age
         feedback.Phone=Phone
         feedback.Message=Message
+        feedback.Rate=Rate
         feedback.save()
         return render(request,"index.html")
     return render(request,"feedback.html")
@@ -124,10 +126,7 @@ def admin(request):
 
 
 from django.shortcuts import render, redirect
-from .models import Worker
-
-def emp(request):
-    return render(request,'emp.html')
+from .models import Worker,Project
 
 def show_workers(request):
     workers = Worker.objects.all()
@@ -151,20 +150,32 @@ def add_worker(request):
     
     return render(request, "workers.html")
 
+def show_project(request):
+    project = Project.objects.all()
+    return render(request, "project.html", {'project': project})
 
-""" def demo(request):
-    workers = Worker.objects.all()
-    return render(request, "workers.html", {'workers': workers})
-    worker.name = name
-    worker.age = age
-    worker.contact = contact
-    worker.designation = designation
-    worker.save()
+def add_project(request):
+    if request.method == "POST":
+        project = Project()
+
+        project_name = request.POST.get("pname")
+        client_name = request.POST.get("cname")
+        contact = request.POST.get("contact")
+        location = request.POST.get("location")
+        budget = request.POST.get("budget")
+        sdate = request.POST.get("sdate")
+        status = request.POST.get("status")
+        edate = request.POST.get("edate")
+        print(project_name,client_name,contact)
+        project = Project(project_name=project_name, client_name=client_name, contact=contact, location=location, budget=budget, sdate=sdate, status=status, edate=edate)
+        project.save()
         
-    return redirect('Naachiyar:show_workers')  
-    return render(request, "workers.html")
+        project = Project.objects.all()
+        return render(request, "project.html", {'project': project})
+    print("page load")
+    return render(request, "project.html")
 
- """
+
 
 
 def Feedback_show(request):

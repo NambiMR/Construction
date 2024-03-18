@@ -46,6 +46,7 @@ class Feedback(models.Model):
         Age=models.IntegerField()
         Phone=models.CharField(max_length=10)
         Message=models.CharField(max_length=250)
+        Rate=models.CharField(max_length=50, null=True)
         def __str__(self):
             return self.Name
     
@@ -57,12 +58,19 @@ class Worker(models.Model):
         def __str__(self):
           return self.name
         
+class Project(models.Model):
+        project_name=models.CharField(max_length=50)
+        client_name=models.CharField(max_length=50)
+        mobile=models.CharField(max_length=10)
+        location=models.CharField(max_length=250)
+        budget=models.CharField(max_length=50)
+        s_date = models.DateField(default=None, blank=True, null=True)
+        status = models.CharField(max_length=50)
+        e_date = models.DateField(default=None, blank=True, null=True)
+        def __str__(self):
+          return self.project_name
+        
 
-class Employee(models.Model):
-        name=models.CharField(max_length=100)
-        age=models.IntegerField()
-        contact=models.CharField(max_length=10)
-        designation=models.CharField(max_length=250)
         
         
 
