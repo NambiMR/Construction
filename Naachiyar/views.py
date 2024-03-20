@@ -157,7 +157,7 @@ def show_project(request):
 def delete_project (request , id):
     project=Project.objects.get(id=id)
     project.delete()
-    return redirect("/show_project")
+    return redirect(request,"/show_project")
 
 def add_project(request):
     if request.method == "POST":
