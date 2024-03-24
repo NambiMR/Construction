@@ -35,5 +35,6 @@ urlpatterns = [
     path('add_project/',views.add_project,name='add_project'),
     path('adminfeedback/',views.Feedback_show,name='adminfeedback'),
     path('adminquote/',views.Quote_show,name='adminquote'),
+    path('hiering/',views.hiering,name='hiering'),
     path('footer/',views.footer,name='footer'),
 ]

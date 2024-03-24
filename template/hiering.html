@@ -2,12 +2,13 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>User Ratings</title>
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-<link rel="stylesheet" href="{% static 'css/adminnav.css' %}" />
-<link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hiering</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
+    <link rel="stylesheet" href="{% static 'css/adminnav.css' %}" />
+    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
 <body>
     <div class="sidebar">
@@ -41,7 +42,7 @@
             </a>
           </li>
           <li>
-            <a href="/project">
+            <a href="#">
               <i class="bx bx-task"></i>
               <span class="links_name">Projects</span>
             </a>
@@ -108,34 +109,45 @@
             
           </div>
         </nav>
-    <div class="container">
-        <h2 align="center">User Ratings</h2>
-        <table class="table table-bordered table-striped">
-          <thead class="thead-dark">
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Age</th>
-              <th>Mobile</th>
-              <th>Message</th>
-              <th>Ratings</th>
-            </tr>
-          </thead>
-          <tbody>
-            {% for fb in feedback %}
-            <tr>
-                
-                <td>{{ fb.Name }}</td>
-                <td>{{ fb.Email }}</td>
-                <td>{{ fb.Age }}</td>
-                <td>{{ fb.Phone}}</td>
-                <td>{{ fb.Message}}</td>
-                <td>{{ fb.Rate}}</td>
-            </tr>
+  <div class="container">
+    <h2 align="center">Job Applictions</h2>
+    <!-- Table to display project details -->
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+        <tr>
+          <th>Name</th>
+          <th>Age</th>
+          <th>Email</th>
+          <th>mobile</th>
+          <th>Role</th>
+          <th>Experiance</th>
+          <th>City</th>
+          <th>Pin Code</th>
+          <th>Date</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for j in job %}
+        <tr>
+          <td>{{ j.name }}</td>
+          <td>{{ j.age }}</td>
+          <td>{{ j.email }}</td>
+          <td>{{ j.mobile }}</td>
+          <td>{{ j.role }}</td>
+          <td>{{ j.experiance }}</td>
+          <td>{{ j.city }}</td>
+          <td>{{ j.pincode }}</td>
+          <td>{{ j.date }}</td>
+          <td>
+            <button class="btn btn-success accept-btn">Accept</button>
+            <button class="btn btn-danger reject-btn">Reject</button>
+          </td>
+        </tr>
         {% endfor %}
-        </tbody>
-        </table>
-        </div>
-    <script src="{% static 'js\admin.js' %}"></script> 
-</body>
-</html>
+      </tbody>
+    </table>
+  </div>
+  <script src="{% static 'js\admin.js' %}"></script> 
+  </body>
+  </html>

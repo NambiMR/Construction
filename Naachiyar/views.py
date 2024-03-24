@@ -190,5 +190,9 @@ def Quote_show(request):
     quote= Quote.objects.all()
     return render(request, "adminquote.html", {'quote': quote})
 
+def hiering(request):
+    job= Job.objects.all()
+    return render(request, "hiering.html", {'job': job})
+
 def footer(request):
     return render(request,'footer.html')
