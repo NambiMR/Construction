@@ -37,4 +37,6 @@ urlpatterns = [
     path('adminquote/',views.Quote_show,name='adminquote'),
     path('hiering/',views.hiering,name='hiering'),
     path('footer/',views.footer,name='footer'),
+    
+    
 ]

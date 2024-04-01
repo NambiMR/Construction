@@ -1,5 +1,6 @@
 from django.shortcuts import render ,redirect
 from django.http import HttpResponse
+from django.utils import timezone
 from . models import user,Contact,Quote,Job,Worker,Project,Feedback
 
 def signup(request):
@@ -194,5 +195,17 @@ def hiering(request):
     job= Job.objects.all()
     return render(request, "hiering.html", {'job': job})
 
+""" def employee_list(request):
+    employees = Employee.objects.all()
+    
+    if request.method == 'POST':
+        employee_id = request.POST.get('employee_id')
+        attendance_status = request.POST.get('attendance_status')
+        employee = Employee.objects.get(id=employee_id)
+        Attendance.objects.create(employee=employee, date=timezone.now().date(), status=attendance_status)
+        return redirect('employee_list')
+    
+    return render(request, 'attendance.html', {'employees': employees})
+ """
 def footer(request):
     return render(request,'footer.html')
