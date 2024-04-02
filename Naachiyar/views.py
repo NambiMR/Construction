@@ -39,6 +39,8 @@ def home(request):
     return render (request,"index.html")
 def projects(request):
     return render (request,"projects.html")
+def temple(request):
+    return render (request,"temple.html")
 
 def contact(request):
     if request.method=="POST":

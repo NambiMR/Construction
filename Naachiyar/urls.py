@@ -24,6 +24,7 @@ urlpatterns = [
     path('', views.home, name='home'),
     path('contact/',views.contact,name='contact'),
     path('projects/',views.projects,name='projects'),
+    path('temple/',views.temple,name='temple'),
     path('quote/',views.quote,name='quote'),
     path('job/',views.job,name='job'),
     path('feedback/',views.feedback,name='feedback'),
@@ -36,7 +37,5 @@ urlpatterns = [
     path('adminfeedback/',views.Feedback_show,name='adminfeedback'),
     path('adminquote/',views.Quote_show,name='adminquote'),
     path('hiering/',views.hiering,name='hiering'),
-    path('footer/',views.footer,name='footer'),
-    
-    
+    path('footer/',views.footer,name='footer'),  
 ]
