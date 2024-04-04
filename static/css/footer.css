@@ -9,12 +9,14 @@
     footer{
         background: #0A2558;
         padding-top: 50px;
+        
     }
     .container{
         width: 1140px;
         margin: auto;
         display: flex;
         justify-content: center;
+        padding: 10px;
     }
     .footer-content{
         width: 33.3%;

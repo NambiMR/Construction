@@ -18,7 +18,7 @@ def login(request):
     if request.method == 'POST':
         email = request.POST.get('email')
         password = request.POST.get('password')
-        if email and password:  # Check if email and password are provided
+        if email and password: 
             try:
                 users = user.objects.get(email=email, password=password)
                 request.session['email'] = email
@@ -28,7 +28,7 @@ def login(request):
                 error = 'Incorrect Email/Password'
         else:
             error = 'Please provide both email and password'
-        return render(request, "login.html", {'error': error})
+        return render(request, "quote.html", {'error': error})
     else:
         if 'email' in request.session:
             return redirect('Naachiyar:home')
@@ -41,6 +41,22 @@ def projects(request):
     return render (request,"projects.html")
 def temple(request):
     return render (request,"temple.html")
+def church(request):
+    return render (request,"church.html")
+def mosque(request):
+    return render (request,"mosqe.html")
+def school(request):
+    return render (request,"school.html")
+def office(request):
+    return render (request,"office.html")
+def factory(request):
+    return render (request,"factory.html")
+def hospital(request):
+    return render (request,"hospital.html")
+def mall(request):
+    return render (request,"mall.html")
+def alogin(request):
+    return render (request,"alogin.html")
 
 def contact(request):
     if request.method=="POST":

@@ -219,6 +219,8 @@ color: #f18930;
 
 .img{
     box-shadow: 15px 25px 65px 15px rgb(100, 99, 99);
+    padding: 30px;
+    margin-left: 50px;
 }
 .card-title1{
     text-shadow: 2px 2px 1px rgb(255, 255, 255);
@@ -247,7 +249,7 @@ color: #f18930;
 }
 
 .card:hover{
-
+    
     transform: scale(1.1);
     transition: all 1s ;
     cursor: pointer;
@@ -259,8 +261,7 @@ color: #f18930;
     transition: .4s;
 }
 .container{
-    padding: 110px;
-
+    padding:20px;
 }
   
 .text{
