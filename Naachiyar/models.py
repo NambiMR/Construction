@@ -6,6 +6,10 @@ class user(models.Model):
     email=models.EmailField(max_length=50)
     password=models.CharField(max_length=50)
 
+class admin(models.Model):
+    email=models.EmailField(max_length=50)
+    password=models.CharField(max_length=50)
+
 class Contact(models.Model):
     name=models.CharField(max_length=50)
     email=models.EmailField(max_length=50)

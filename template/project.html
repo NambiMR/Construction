@@ -131,18 +131,24 @@
         </tr>
       </thead>
       <tbody>
-        {% for pro in project %}
-        <tr>
-          <td>{{ pro.project_name }}</td>
-          <td>{{ pro.client_name }}</td>
-          <td>{{ pro.mobile }}</td>
-          <td>{{ pro.location }}</td>
-          <td>{{ pro.budget }}</td>
-          <td>{{ pro.s_date }}</td>
-          <td>{{ pro.status }}</td>
-          <td>{{ pro.e_date }}</td>
+          {% for project in projects %}
+            <tr>
+                <td>{{ project.project_name }}</td>
+                <td>{{ project.client_name }}</td>
+                <td>{{ project.mobile }}</td> 
+                <td>{{ project.location }}</td>
+                <td>{{ project.budget }}</td>
+                <td>{{ project.s_date }}</td> 
+                <td>{{ project.status }}</td>
+                <td>{{ project.e_date }}</td>
           <td>
-            <button class="btn btn-primary edit-btn" data-toggle="modal" data-target="#editProjectModal">Edit</button>
+              <button class="btn btn-primary edit-btn" data-toggle="modal" data-target="#editProjectModal" 
+                      data-project-name="{{ project.project_name }}" data-client-name="{{ project.client_name }}" 
+                      data-contact="{{ project.mobile }}" data-location="{{ project.location }}" 
+                      data-budget="{{ project.budget }}" data-starting-date="{{ project.s_date }}" 
+                      data-status="{{ project.status }}" data-ending-date="{{ project.e_date }}">
+                Edit
+              </button>
             <a href="/delete_project/{{ project.id }}" class="btn btn-danger">Delete</a>
           </td>
         </tr>
@@ -207,59 +213,60 @@
   </div>
 
   <!-- Modal for editing project -->
-  <div class="modal fade" id="editProjectModal" tabindex="-1" role="dialog" aria-labelledby="editProjectModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="editProjectModalLabel">Edit Project</h5>
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <!-- Form fields for editing project -->
-          <form id="editProjectForm">
-            <div class="form-group">
-              <label for="editProjectName">Project Name</label>
-              <input type="text" class="form-control" id="editProjectName" placeholder="Enter project name">
-            </div>
-            <div class="form-group">
-              <label for="editClientName">Client Name</label>
-              <input type="text" class="form-control" id="editClientName" placeholder="Enter client name">
-            </div>
-            <div class="form-group">
-              <label for="editContact">Contact</label>
-              <input type="text" class="form-control" id="editContact" placeholder="Enter contact">
-            </div>
-            <div class="form-group">
-              <label for="editLocation">Location</label>
-              <input type="text" class="form-control" id="editLocation" placeholder="Enter location">
-            </div>
-            <div class="form-group">
-              <label for="editBudget">Budget</label>
-              <input type="text" class="form-control" id="editBudget" placeholder="Enter budget">
-            </div>
-            <div class="form-group">
-              <label for="editStartingDate">Starting Date</label>
-              <input type="date" class="form-control" id="editStartingDate">
-            </div>
-            <div class="form-group">
-              <label for="editStatus">Status</label>
-              <input type="text" class="form-control" id="editStatus" placeholder="Enter status">
-            </div>
-            <div class="form-group">
-              <label for="editEndingDate">Ending Date</label>
-              <input type="date" class="form-control" id="editEndingDate">
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary">Save changes</button>
-        </div>
+<div class="modal fade" id="editProjectModal" tabindex="-1" role="dialog" aria-labelledby="editProjectModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editProjectModalLabel">Edit Project</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <!-- Form fields for editing project -->
+        <form method="post" action="">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="editProjectName">Project Name</label>
+            <input type="text" class="form-control" id="editProjectName" name="pname" placeholder="Enter project name" value="{{ project.project_name }}">
+          </div>
+          <div class="form-group">
+            <label for="editClientName">Client Name</label>
+            <input type="text" class="form-control" id="editClientName" name="cname" placeholder="Enter client name" value="{{ project.client_name }}">
+          </div>
+          <div class="form-group">
+            <label for="editContact">Contact</label>
+            <input type="text" class="form-control" id="editContact" name="contact" placeholder="Enter contact" value="{{ project.mobile }}">
+          </div>
+          <div class="form-group">
+            <label for="editLocation">Location</label>
+            <input type="text" class="form-control" id="editLocation" name="location" placeholder="Enter location" value="{{ project.location }}">
+          </div>
+          <div class="form-group">
+            <label for="editBudget">Budget</label>
+            <input type="text" class="form-control" id="editBudget" name="budget" placeholder="Enter budget" value="{{ project.budget }}">
+          </div>
+          <div class="form-group">
+            <label for="editStartingDate">Starting Date</label>
+            <input type="date" class="form-control" id="editStartingDate" name="sdate" value="{{ project.s_date }}">
+          </div>
+          <div class="form-group">
+            <label for="editStatus">Status</label>
+            <input type="text" class="form-control" id="editStatus" name="status" placeholder="Enter status" value="{{ project.status }}">
+          </div>
+          <div class="form-group">
+            <label for="editEndingDate">Ending Date</label>
+            <input type="date" class="form-control" id="editEndingDate" name="edate" value="{{ project.e_date }}">
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Save changes</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
+</div>
 
   <!-- Bootstrap JS and dependencies -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
@@ -268,29 +275,29 @@
 
   <script>
     $(document).ready(function () {
-      // Edit button click event
-      $('.edit-btn').click(function () {
-        var row = $(this).closest('tr');
-        var projectName = row.find('td:eq(0)').text();
-        var clientName = row.find('td:eq(1)').text();
-        var contact = row.find('td:eq(2)').text();
-        var location = row.find('td:eq(3)').text();
-        var budget = row.find('td:eq(4)').text();
-        var startingDate = row.find('td:eq(5)').text();
-        var status = row.find('td:eq(6)').text();
-        var endingDate = row.find('td:eq(7)').text();
+  // Edit button click event
+  $('.edit-btn').click(function () {
+    // Read data attributes
+    var projectName = $(this).data('project-name');
+    var clientName = $(this).data('client-name');
+    var contact = $(this).data('contact');
+    var location = $(this).data('location');
+    var budget = $(this).data('budget');
+    var startingDate = $(this).data('starting-date');
+    var status = $(this).data('status');
+    var endingDate = $(this).data('ending-date');
 
-        // Set values in the edit project modal
-        $('#editProjectName').val(projectName);
-        $('#editClientName').val(clientName);
-        $('#editContact').val(contact);
-        $('#editLocation').val(location);
-        $('#editBudget').val(budget);
-        $('#editStartingDate').val(startingDate);
-        $('#editStatus').val(status);
-        $('#editEndingDate').val(endingDate);
-      });
-    });
+    // Set values in the edit project modal
+    $('#editProjectName').val(projectName);
+    $('#editClientName').val(clientName);
+    $('#editContact').val(contact);
+    $('#editLocation').val(location);
+    $('#editBudget').val(budget);
+    $('#editStartingDate').val(startingDate);
+    $('#editStatus').val(status);
+    $('#editEndingDate').val(endingDate);
+  });
+});
   </script>
   <script src="{% static 'js\admin.js' %}"></script> 
 </body>

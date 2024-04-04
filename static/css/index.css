@@ -240,10 +240,14 @@ color: #f18930;
     
 }
 .card{
+    
+    margin-top: 110px;
+    margin-inline-start: 20px;
     position: relative;
     background-color: rgb(255, 255, 255);
     
 }
+
 .card h5:hover{
     color: #ff000d;
 }

@@ -34,6 +34,7 @@
     }
     .footer-content ul{
         text-align: center;
+        
     }
     .list{
         padding: 0;
@@ -44,7 +45,7 @@
         list-style-type:none;
         padding: 7px;
         position: relative;
-        color: aliceblue;
+        
     }
     .list li::before{
         content: '';
