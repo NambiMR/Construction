@@ -115,9 +115,8 @@
           <div class="box">
             <div class="right-side">
               <div class="box-topic">All Projects</div>
-              <div class="number">25</div>
-              
-            </div>
+              <div class="number">{{ Projects_count }}</div>
+          </div>
             <i class="bx bx-cart-alt cart"></i>
           </div>
           <div class="box">
@@ -144,24 +143,17 @@
             <i class="bx bxs-cart-download cart four"></i>
           </div>
         </div>
-        <!-- <div class="sales-boxes">
-    <div class="recent-sales box">
-        <div class="title">Recent Projects</div>
-        <div class="sales-details">
-            <ul class="details">
-                <li class="topic">Project</li>
-                {% for project in projects %}
-                <li>{{ project.name }}</li>
-                {% endfor %}
-            </ul>
-             Repeat the same for Client, Status, and Budget 
-        </div>
-        <div class="button">
-            <a href="/project">See All</a>
-        </div>
-    </div>
-</div> -->
+        
         <div class="sales-boxes">
+          <div class="recent-sales box">
+            <div class="title">Recent Projects</div>
+            <div class="sales-details">
+              <ul class="details">
+                <li class="topic">Project</li>
+                {% for project in projects%}
+                <li>{{ project.project_name }}</li>
+                
+        <!-- <div class="sales-boxes">
           <div class="recent-sales box">
             <div class="title">Recent Projects</div>
             <div class="sales-details">
@@ -176,45 +168,46 @@
                 <li>Home</li>
                 <li>Home</li>
                 <li>Home</li>
-                <li>Home</li>
-              </ul>
+                <li>Home</li>-->
+              </ul> 
               <ul class="details">
                 <li class="topic">Client</li>
-                <li><a href="#">Alex Doe</a></li>
-                <li><a href="#">David Mart</a></li>
+                <li>{{ project.client_name}}</li>
+                <!-- <li><a href="#">David Mart</a></li>
                 <li><a href="#">Roe Parter</a></li>
                 <li><a href="#">Diana Penty</a></li>
                 <li><a href="#">Martin Paw</a></li>
                 <li><a href="#">Doe Alex</a></li>
                 <li><a href="#">Aiana Lexa</a></li>
                 <li><a href="#">Rexel Mags</a></li>
-                <li><a href="#">Tiana Loths</a></li>
+                <li><a href="#">Tiana Loths</a></li> -->
               </ul>
               <ul class="details">
                 <li class="topic">Status</li>
-                <li><a href="#">Pending</a></li>
-                <li><a href="#">Pending</a></li>
+                <li>{{ project.status }}</li>
+                <!-- <li><a href="#">Pending</a></li>
                 <li><a href="#">Completed</a></li>
                 <li><a href="#">Pending</a></li>
                 <li><a href="#">Pending</a></li>
                 <li><a href="#">Completed</a></li>
                 <li><a href="#">Pending</a></li>
                 <li><a href="#">Pending</a></li>
-                <li><a href="#">Pending</a></li>
+                <li><a href="#">Pending</a></li> -->
               </ul>
               <ul class="details">
                 <li class="topic">Budget</li>
-                <li><a href="#">$204.98</a></li>
-                <li><a href="#">$24.55</a></li>
+                <li>{{project.budget }}</li>
+                <!-- <li><a href="#">$24.55</a></li>
                 <li><a href="#">$25.88</a></li>
                 <li><a href="#">$170.66</a></li>
                 <li><a href="#">$56.56</a></li>
                 <li><a href="#">$44.95</a></li>
                 <li><a href="#">$67.33</a></li>
                 <li><a href="#">$23.53</a></li>
-                <li><a href="#">$46.52</a></li>
+                <li><a href="#">$46.52</a></li> -->
               </ul>
             </div>
+            {% endfor %}
             <div class="button">
               <a href="/project">See All</a>
             </div>

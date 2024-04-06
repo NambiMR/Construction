@@ -215,7 +215,7 @@ from django.shortcuts import render, redirect,get_object_or_404
 from .models import Worker,Project
 from django.contrib import messages
 
-def show_workers(request):
+""" def show_workers(request):
     workers = Worker.objects.all()
     return render(request, "workers.html", {'workers': workers})
 
@@ -236,6 +236,58 @@ def add_worker(request):
         return render(request, "workers.html", {'workers': workers})
     
     return render(request, "workers.html")
+ """
+def worker_list(request):
+    """ email = request.session.get('email')
+    print(email)
+    if not email:
+        return redirect('Naachiyar:alogin') #return render(request, 'admin_panel.html', {'email': email})
+    else: """
+    if request.method == "POST":
+        name = request.POST.get("name")
+        age = request.POST.get("age")
+        contact = request.POST.get("contact")
+        designation = request.POST.get("designation")
+
+        Worker.objects.create(
+            name=name, 
+            age=age, 
+            contact=contact, 
+            designation=designation
+        )
+        return redirect('Naachiyar:worker_list')
+    
+    workers = Worker.objects.all()
+    return render(request, 'workers.html', {'workers': workers})
+
+def update_worker(request, id):
+    project = get_object_or_404(Worker, id=id)
+
+    if request.method == "POST":
+        name = request.POST.get("name")
+        age = request.POST.get("age")
+        contact = request.POST.get("contact")
+        designation = request.POST.get("designation")
+
+        # Update project fields
+        project.name = name
+        project.age = age
+        project.contact = contact
+        project.designation = designation
+
+        # Save the updated project
+        Worker.save()
+
+        messages.success(request, 'Details updated successfully.')
+        return redirect('Naachiyar:worker_list')
+
+    # Pass the project instance to the template
+    return render(request, 'workers.html', {'project': project})
+
+def delete_worker(request,id):
+    worker = get_object_or_404(Worker, id=id)
+    worker.delete()
+    return redirect('Naachiyar:worker_list')
 
 def project_list(request):
     """ email = request.session.get('email')
@@ -263,6 +315,7 @@ def project_list(request):
             status=status, 
             e_date=e_date
         )
+
         return redirect('Naachiyar:project_list')
     
     projects = Project.objects.all()
@@ -304,6 +357,10 @@ def delete_project(request,id):
     project = get_object_or_404(Project, id=id)
     project.delete()
     return redirect('Naachiyar:project_list')
+
+def project_count(request):
+    projects_count = Project.objects.count()
+    return render(request, 'project.html', {'Projects_count': projects_count})
 
 """ def show_project(request):
     project = Project.objects.all()

@@ -136,7 +136,7 @@
                     <td>{{ worker.designation }}</td>
                     <td>
                       <button type="button" class="btn btn-warning btn-sm" onclick="editUser(this)">Edit</button>
-                      <button type="button" class="btn btn-danger btn-sm" onclick="deleteUser(this)">Delete</button>
+                      <a href="/delete_worker/{{ worker.id }}" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
                 {% endfor %}
@@ -160,5 +160,31 @@
               </div>
           </div>
       </div>
+      <script>
+        $(document).ready(function () {
+      // Edit button click event
+      $('.edit-btn').click(function () {
+        // Read data attributes
+        var projectName = $(this).data('project-name');
+        var clientName = $(this).data('client-name');
+        var contact = $(this).data('contact');
+        var location = $(this).data('location');
+        var budget = $(this).data('budget');
+        var startingDate = $(this).data('starting-date');
+        var status = $(this).data('status');
+        var endingDate = $(this).data('ending-date');
+    
+        // Set values in the edit project modal
+        $('#editProjectName').val(projectName);
+        $('#editClientName').val(clientName);
+        $('#editContact').val(contact);
+        $('#editLocation').val(location);
+        $('#editBudget').val(budget);
+        $('#editStartingDate').val(startingDate);
+        $('#editStatus').val(status);
+        $('#editEndingDate').val(endingDate);
+      });
+    });
+      </script>
       <script src="{% static 'js\admin.js' %}"></script> 
       </body> 
