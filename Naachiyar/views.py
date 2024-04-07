@@ -113,6 +113,21 @@ def hospital(request):
 def mall(request):
     return render (request,"mall.html")
 
+def Feedback_show(request):
+    feedback= Feedback.objects.all()
+    return render(request, "adminfeedback.html", {'feedback': feedback})
+
+def Quote_show(request):
+    quote= Quote.objects.all()
+    return render(request, "adminquote.html", {'quote': quote})
+
+def hiering(request):
+    job= Job.objects.all()
+    return render(request, "hiering.html", {'job': job})
+
+def footer(request):
+    return render(request,'footer.html')
+
 
 def contact(request):
     if request.method=="POST":
@@ -213,36 +228,10 @@ def feedback(request):
 
 from django.shortcuts import render, redirect,get_object_or_404
 from .models import Worker,Project
+from .forms import AddWorker,AddProject
 from django.contrib import messages
 
-""" def show_workers(request):
-    workers = Worker.objects.all()
-    return render(request, "workers.html", {'workers': workers})
-
-def add_worker(request):
-    if request.method == "POST":
-        worker = Worker()
-
-        name = request.POST.get("name")
-        age = request.POST.get("age")
-        contact = request.POST.get("contact")
-        designation = request.POST.get("designation")
-
-        
-        worker = Worker(name=name, age=age, contact=contact, designation=designation)
-        worker.save()
-        
-        workers = Worker.objects.all()
-        return render(request, "workers.html", {'workers': workers})
-    
-    return render(request, "workers.html")
- """
 def worker_list(request):
-    """ email = request.session.get('email')
-    print(email)
-    if not email:
-        return redirect('Naachiyar:alogin') #return render(request, 'admin_panel.html', {'email': email})
-    else: """
     if request.method == "POST":
         name = request.POST.get("name")
         age = request.POST.get("age")
@@ -260,8 +249,29 @@ def worker_list(request):
     workers = Worker.objects.all()
     return render(request, 'workers.html', {'workers': workers})
 
+def add_worker(request):
+    
+    if request.method=="POST":
+        form=AddWorker(request.POST)
+        if form.is_valid():
+            try:
+                form.save()
+                messages.success(request,"Details Added Successfully")
+                return redirect('Naachiyar:worker_list')
+            except:
+                pass
+
+    else:
+        form=AddWorker()
+    return render(request,"addworker.html",{'form':form})
+
+def delete_worker(request,id):
+    worker = get_object_or_404(Worker, id=id)
+    worker.delete()
+    return redirect('Naachiyar:worker_list')
+
 def update_worker(request, id):
-    project = get_object_or_404(Worker, id=id)
+    worker = Worker.objects.get(id=id)
 
     if request.method == "POST":
         name = request.POST.get("name")
@@ -270,24 +280,21 @@ def update_worker(request, id):
         designation = request.POST.get("designation")
 
         # Update project fields
-        project.name = name
-        project.age = age
-        project.contact = contact
-        project.designation = designation
+        worker.name = name
+        worker.age = age
+        worker.contact = contact
+        worker.designation = designation
 
         # Save the updated project
-        Worker.save()
+        worker.save()
 
         messages.success(request, 'Details updated successfully.')
         return redirect('Naachiyar:worker_list')
 
     # Pass the project instance to the template
-    return render(request, 'workers.html', {'project': project})
+    return render(request, 'update_worker.html', {'worker': worker})
 
-def delete_worker(request,id):
-    worker = get_object_or_404(Worker, id=id)
-    worker.delete()
-    return redirect('Naachiyar:worker_list')
+
 
 def project_list(request):
     """ email = request.session.get('email')
@@ -321,10 +328,30 @@ def project_list(request):
     projects = Project.objects.all()
     return render(request, 'project.html', {'projects': projects})
 
-def update_project(request, id):
-    project = get_object_or_404(Project, id=id)
+def add_project(request):
+    
+    if request.method=="POST":
+        project=AddProject(request.POST)
+        if project.is_valid():
+            try:
+                project.save()
+                messages.success(request,"Project Added Successfully")
+                return redirect('Naachiyar:project_list')
+            except:
+                pass
 
-    if request.method == 'POST':
+    else:
+        project=AddProject()
+    return render(request,"addproject.html",{'project':project})
+
+def delete_project(request,id):
+    project = get_object_or_404(Project, id=id)
+    project.delete()
+    return redirect('Naachiyar:project_list')
+
+def update_project(request, id):
+    project=Project.objects.get(id=id)
+    if request.method=="POST":
         project_name = request.POST.get("pname")
         client_name = request.POST.get("cname")
         mobile = request.POST.get("contact")
@@ -334,7 +361,6 @@ def update_project(request, id):
         status = request.POST.get("status")
         e_date = request.POST.get("edate")
 
-        # Update project fields
         project.project_name = project_name
         project.client_name = client_name
         project.mobile = mobile
@@ -343,6 +369,19 @@ def update_project(request, id):
         project.s_date = s_date
         project.status = status
         project.e_date = e_date
+        project.save()
+        messages.success(request, 'Project updated successfully.')
+        return redirect('Naachiyar:project_list')
+
+    return render(request, 'update_project.html', {'project': project})
+
+    """ project = get_object_or_404(Project, id=id)
+
+    if request.method == 'POST':
+        
+
+        # Update project fields
+        
 
         # Save the updated project
         project.save()
@@ -350,75 +389,12 @@ def update_project(request, id):
         messages.success(request, 'Project updated successfully.')
         return redirect('Naachiyar:project_list')
 
-    # Pass the project instance to the template
-    return render(request, 'project.html', {'project': project})
+    # Pass the project instance to the template """
+        
 
-def delete_project(request,id):
-    project = get_object_or_404(Project, id=id)
-    project.delete()
-    return redirect('Naachiyar:project_list')
+
 
 def project_count(request):
     projects_count = Project.objects.count()
     return render(request, 'project.html', {'Projects_count': projects_count})
 
-""" def show_project(request):
-    project = Project.objects.all()
-    return render(request, "project.html", {'project': project})
-
-def delete_project (request , id):
-    project=Project.objects.get(id=id)
-    project.delete()
-    return redirect(request,"/show_project")
-
-
-
-def add_project(request):
-    if request.method == "POST":
-        project = Project()
-        project_name = request.POST.get("pname")
-        client_name = request.POST.get("cname")
-        contact = request.POST.get("contact")
-        location = request.POST.get("location")
-        budget = request.POST.get("budget")
-        sdate = request.POST.get("sdate")
-        status = request.POST.get("status")
-        edate = request.POST.get("edate")
-        print(project_name,client_name,contact)
-        project = Project(project_name=project_name, client_name=client_name, contact=contact, location=location, budget=budget, sdate=sdate, status=status, edate=edate)
-        project.save()
-        
-        project = Project.objects.all()
-        return render(request, "project.html", {'project': project})
-    print("page load")
-    return render(request, "project.html")
- """
-
-
-
-def Feedback_show(request):
-    feedback= Feedback.objects.all()
-    return render(request, "adminfeedback.html", {'feedback': feedback})
-
-def Quote_show(request):
-    quote= Quote.objects.all()
-    return render(request, "adminquote.html", {'quote': quote})
-
-def hiering(request):
-    job= Job.objects.all()
-    return render(request, "hiering.html", {'job': job})
-
-""" def employee_list(request):
-    employees = Employee.objects.all()
-    
-    if request.method == 'POST':
-        employee_id = request.POST.get('employee_id')
-        attendance_status = request.POST.get('attendance_status')
-        employee = Employee.objects.get(id=employee_id)
-        Attendance.objects.create(employee=employee, date=timezone.now().date(), status=attendance_status)
-        return redirect('employee_list')
-    
-    return render(request, 'attendance.html', {'employees': employees})
- """
-def footer(request):
-    return render(request,'footer.html')

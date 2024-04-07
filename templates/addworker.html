@@ -1,0 +1,47 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Add New User</title>
+  
+</head>
+<body>
+
+<div class="container-fluid" style="margin-top: 50px;">
+    <div class="col-md-offset-4 col-md-4">
+        <h1 class="text-primary page-header text-center"><i class='fa fa-users'>Add New User</i></h1>
+        <form method="POST" >
+          {% csrf_token %}
+            {{form}}
+            <input type="submit" class="btn btn-primary" value="Add"></input>
+          </form>
+    </div>
+</div>
+  
+  <!-- <form method="POST" >
+    {% csrf_token %}
+    <div class="form-group">
+      <label for="fullName">Name</label>
+      <input type="text" class="form-control" id="fullName" placeholder="Enter name">
+    </div>
+    <div class="form-group">
+      <label for="age">Age</label>
+      <input type="number" class="form-control" id="age" placeholder="Enter age">
+    </div>
+    <div class="form-group">
+      <label for="contact">Contact</label>
+      <input type="tel" class="form-control" id="contact" placeholder="Enter contact number">
+    </div>
+    <div class="form-group">
+      <label for="designation">Designation</label>
+      <input type="text" class="form-control" id="designation" placeholder="Enter designation">
+    </div>
+    <input type="submit" class="btn btn-primary" value="Add"></input>
+  </form>
+</div>
+ -->
+<!-- Bootstrap JS and dependencies -->
+</body>
+</html>

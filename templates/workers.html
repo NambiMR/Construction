@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="{% static 'css/adminnav.css' %}" />
     <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+    
 </head>
 <body>
     <div class="sidebar">
@@ -112,7 +113,20 @@
         <div class="container">
             <h2 align="center">Workers Details</h2>
             <div class="mb-3">
-              <button class="btn btn-primary" id="addWorkerBtn" data-toggle="modal" data-target="#addWorkerModal">Add New</button>
+              <a class="btn btn-primary" href="/addworker">Add New</a>
+              {% if messages %}
+                  {% for message in messages %}
+                      {% if message.tags == 'error' %}
+                        <div class="alert alert-danger">
+                          {{ message }}
+                        </div>
+                      {% else %}
+                        <div class="alert alert-{{ message.tags }}">
+                          {{ message }}
+                        </div> 
+                      {% endif %} 
+                   {% endfor %} 
+              {% endif %} 
             </div>
             <!-- Table to display project details -->
             <table class="table table-bordered table-striped">
@@ -135,56 +149,14 @@
                     <td>{{ worker.contact }}</td>
                     <td>{{ worker.designation }}</td>
                     <td>
-                      <button type="button" class="btn btn-warning btn-sm" onclick="editUser(this)">Edit</button>
+                      <a href="/update_worker/{{worker.id}}" class="btn btn-primary">Update</a>
                       <a href="/delete_worker/{{ worker.id }}" class="btn btn-danger">Delete</a>
                     </td>
                 </tr>
                 {% endfor %}
             </tbody>
             </table>
-          <div id="myModal" class="modal">
-              <div class="modal-content">
-                  <span class="close" onclick="closeModal()">&times;</span>
-                  <form id="addUserForm" method="post">
-                      {% csrf_token %}
-                      <label for="name">Name:</label>
-                      <input type="text" id="name" name="name" required><br>
-                      <label for="age">Age:</label>
-                      <input type="number" id="age" name="age" required><br>
-                      <label for="contact">Contact:</label>
-                      <input type="text" id="contact" name="contact" required><br>
-                      <label for="designation">Designation:</label>
-                      <input type="text" id="designation" name="designation" required><br>
-                      <button type="submit">Add User</button>
-                  </form>
-              </div>
-          </div>
-      </div>
-      <script>
-        $(document).ready(function () {
-      // Edit button click event
-      $('.edit-btn').click(function () {
-        // Read data attributes
-        var projectName = $(this).data('project-name');
-        var clientName = $(this).data('client-name');
-        var contact = $(this).data('contact');
-        var location = $(this).data('location');
-        var budget = $(this).data('budget');
-        var startingDate = $(this).data('starting-date');
-        var status = $(this).data('status');
-        var endingDate = $(this).data('ending-date');
-    
-        // Set values in the edit project modal
-        $('#editProjectName').val(projectName);
-        $('#editClientName').val(clientName);
-        $('#editContact').val(contact);
-        $('#editLocation').val(location);
-        $('#editBudget').val(budget);
-        $('#editStartingDate').val(startingDate);
-        $('#editStatus').val(status);
-        $('#editEndingDate').val(endingDate);
-      });
-    });
-      </script>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="{% static 'js\msg.js' %}"></script>
       <script src="{% static 'js\admin.js' %}"></script> 
       </body> 
