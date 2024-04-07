@@ -125,6 +125,8 @@ def hiering(request):
     job= Job.objects.all()
     return render(request, "hiering.html", {'job': job})
 
+
+
 def footer(request):
     return render(request,'footer.html')
 
@@ -270,6 +272,11 @@ def delete_worker(request,id):
     worker.delete()
     return redirect('Naachiyar:worker_list')
 
+def delete_hiering(request,id):
+    hiering = get_object_or_404(Job, id=id)
+    hiering.delete()
+    return redirect('Naachiyar:hiering')
+
 def update_worker(request, id):
     worker = Worker.objects.get(id=id)
 
@@ -390,7 +397,9 @@ def update_project(request, id):
         return redirect('Naachiyar:project_list')
 
     # Pass the project instance to the template """
-        
+def project_dashboard(request):
+    project = Project.objects.all()  # Fetch all projects
+    return render(request, 'admin.html', {'project': project}) 
 
 
 

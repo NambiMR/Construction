@@ -18,9 +18,15 @@
         </div>    
         <ul class="nav-links">
           <li>
-            <a href="#" class="active">
+            <a href="/dashboard" class="active">
               <i class="bx bx-grid-alt"></i>
               <span class="links_name">Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              <i class="bx bx-home"></i>
+              <span class="links_name">Home</span>
             </a>
           </li>
           <li>
@@ -73,7 +79,7 @@
               <span class="links_name">Feedback</span>
             </a>
           </li>
-          <li>
+          <!-- <li>
             <a href="#">
               <i class="bx bx-building-house"></i>
               <span class="links_name">Blue Print</span>
@@ -84,7 +90,7 @@
               <i class="bx bx-palette"></i>
               <span class="links_name">Design</span>
             </a>
-          </li>
+          </li> -->
           <li class="log_out">
             <a href="#">
               <i class="bx bx-log-out"></i>
@@ -120,7 +126,7 @@
           <th>Email</th>
           <th>mobile</th>
           <th>Role</th>
-          <th>Experiance</th>
+          <th>Experience</th>
           <th>City</th>
           <th>Pin Code</th>
           <th>Date</th>
@@ -135,13 +141,13 @@
           <td>{{ j.email }}</td>
           <td>{{ j.mobile }}</td>
           <td>{{ j.role }}</td>
-          <td>{{ j.experiance }}</td>
+          <td>{{ j.experience}}</td>
           <td>{{ j.city }}</td>
           <td>{{ j.pincode }}</td>
           <td>{{ j.date }}</td>
           <td>
             <button class="btn btn-success accept-btn"><i class="fas fa-check"></i></button>
-            <button class="btn btn-danger reject-btn"><i class="fas fa-times"></i></button>
+            <a href="/delete_hiering/{{ job.id }}" class="btn btn-danger reject-btn"><i class="fas fa-times"></i> </a>
           </td>
         </tr>
         {% endfor %}

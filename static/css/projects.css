@@ -113,7 +113,7 @@ color: #f18930;
     transition: 1s;
 }
 .container .card:hover{
-    height: 350px;
+    height: 300px;
 }
 .container .card .imgbx{
     position: absolute;
@@ -161,7 +161,7 @@ color: #f18930;
     color: white;
     font-size: 1.05em;
 }
-.container .card .content a{
+/* .container .card .content a{
     text-decoration: none;
     top: 15px;
     display: inline-block;
@@ -170,7 +170,7 @@ color: #f18930;
     color: white;
     font-size: 500;
     border-radius: 8px;
-}
+} */
 .lists{
     padding-top: 100px;
     display: flex;

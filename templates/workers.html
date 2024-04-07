@@ -19,9 +19,15 @@
         </div>    
         <ul class="nav-links">
           <li>
-            <a href="#" class="active">
+            <a href="/dashboard" class="active">
               <i class="bx bx-grid-alt"></i>
               <span class="links_name">Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="/">
+              <i class="bx bx-home"></i>
+              <span class="links_name">Home</span>
             </a>
           </li>
           <li>
@@ -74,7 +80,7 @@
               <span class="links_name">Feedback</span>
             </a>
           </li>
-          <li>
+          <!-- <li>
             <a href="#">
               <i class="bx bx-building-house"></i>
               <span class="links_name">Blue Print</span>
@@ -85,7 +91,7 @@
               <i class="bx bx-palette"></i>
               <span class="links_name">Design</span>
             </a>
-          </li>
+          </li> -->
           <li class="log_out">
             <a href="#">
               <i class="bx bx-log-out"></i>
@@ -113,7 +119,7 @@
         <div class="container">
             <h2 align="center">Workers Details</h2>
             <div class="mb-3">
-              <a class="btn btn-primary" href="/addworker">Add New</a>
+              <a class="btn btn-success" href="/addworker">Add New</a>
               {% if messages %}
                   {% for message in messages %}
                       {% if message.tags == 'error' %}

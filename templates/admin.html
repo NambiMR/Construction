@@ -17,7 +17,7 @@
       </div>    
       <ul class="nav-links">
         <li>
-          <a href="" class="active">
+          <a href="/dashboard" class="active">
             <i class="bx bx-grid-alt"></i>
             <span class="links_name">Dashboard</span>
           </a>
@@ -73,12 +73,12 @@
           </a>
         </li>
         
-        <li>
+        <!-- <li>
           <a href="#">
             <i class="bx bx-palette"></i>
             <span class="links_name">Design</span>
           </a>
-        </li>
+        </li> -->
         <li id="darkModeToggleBtn">
           <a href="#">
               <i class="bx bx-moon"></i>
@@ -115,8 +115,9 @@
           <div class="box">
             <div class="right-side">
               <div class="box-topic">All Projects</div>
-              <div class="number">{{ Projects_count }}</div>
-          </div>
+              <div class="number">25</div>
+              
+            </div>
             <i class="bx bx-cart-alt cart"></i>
           </div>
           <div class="box">
@@ -129,154 +130,123 @@
           </div>
           <div class="box">
             <div class="right-side">
-              <div class="box-topic">Pending Projects</div>
-              <div class="number">4</div>
+              <div class="box-topic">Completed Projects</div>
+              <div class="number">18</div>
               
             </div>
             <i class="bx bx-cart cart three"></i>
           </div>
           <div class="box">
             <div class="right-side">
-              <div class="box-topic">Budget</div>
-              <div class="number">$5,000</div>
+              <div class="box-topic">Pending Projects</div>
+              <div class="number">5</div>
             </div>
             <i class="bx bxs-cart-download cart four"></i>
           </div>
         </div>
-        
+
         <div class="sales-boxes">
           <div class="recent-sales box">
             <div class="title">Recent Projects</div>
             <div class="sales-details">
               <ul class="details">
                 <li class="topic">Project</li>
-                {% for project in projects%}
-                <li>{{ project.project_name }}</li>
+                <li>House</a></li>
+                <li>Temple</a></li>
+                <li>Shopping Mall</a></li>
+                <li>Theater</a></li>
+                <li>House</a></li>
+                <li>Hospital</a></li>
                 
-        <!-- <div class="sales-boxes">
-          <div class="recent-sales box">
-            <div class="title">Recent Projects</div>
-            <div class="sales-details">
-              <ul class="details">
-                <li class="topic">Project</li>
-                <li>Home</li>
-                <li>Home</li>
-                <li>Home</li>
-                <li>Home</li>
-                <li>Home</li>
-                <li>Home</li>
-                <li>Home</li>
-                <li>Home</li>
-                <li>Home</li>
-                <li>Home</li>-->
-              </ul> 
+                
+              </ul>
               <ul class="details">
                 <li class="topic">Client</li>
-                <li>{{ project.client_name}}</li>
-                <!-- <li><a href="#">David Mart</a></li>
-                <li><a href="#">Roe Parter</a></li>
-                <li><a href="#">Diana Penty</a></li>
-                <li><a href="#">Martin Paw</a></li>
-                <li><a href="#">Doe Alex</a></li>
-                <li><a href="#">Aiana Lexa</a></li>
-                <li><a href="#">Rexel Mags</a></li>
-                <li><a href="#">Tiana Loths</a></li> -->
+                <li>Nambi</a></li>
+                <li>Thiru</a></li>
+                <li>Dhinesh</a></li>
+                <li>Shiva</a></li>
+                <li>Puvan</a></li>
+                <li>Priya</a></li>
+                
               </ul>
               <ul class="details">
                 <li class="topic">Status</li>
-                <li>{{ project.status }}</li>
-                <!-- <li><a href="#">Pending</a></li>
-                <li><a href="#">Completed</a></li>
-                <li><a href="#">Pending</a></li>
-                <li><a href="#">Pending</a></li>
-                <li><a href="#">Completed</a></li>
-                <li><a href="#">Pending</a></li>
-                <li><a href="#">Pending</a></li>
-                <li><a href="#">Pending</a></li> -->
+                <li>Completed</a></li>
+                <li>Completed</a></li>
+                <li>Pending</a></li>
+                <li>Completed</a></li>
+                <li>Pending</a></li>
+                <li>Pending</a></li>
+                
+                
               </ul>
               <ul class="details">
                 <li class="topic">Budget</li>
-                <li>{{project.budget }}</li>
-                <!-- <li><a href="#">$24.55</a></li>
-                <li><a href="#">$25.88</a></li>
-                <li><a href="#">$170.66</a></li>
-                <li><a href="#">$56.56</a></li>
-                <li><a href="#">$44.95</a></li>
-                <li><a href="#">$67.33</a></li>
-                <li><a href="#">$23.53</a></li>
-                <li><a href="#">$46.52</a></li> -->
+                <li>Rs/-600000</a></li>
+                <li>Rs/-1500000</a></li>
+                <li>Rs/-2000000</a></li>
+                <li>Rs/-1800000</a></li>
+                <li>Rs/-600000</a></li>
+                <li>Rs/-2800000</a></li>
+                
+                
               </ul>
             </div>
-            {% endfor %}
             <div class="button">
               <a href="/project">See All</a>
             </div>
           </div>
-          <!-- <div class="top-sales box">
-            <div class="title">Employees</div>
-            <ul class="top-sales-details">
-                {% for worker in workers %}
-                <li>
-                    <img src="{% static 'images\engi.jpg' %}"/>
-                    <span class="emp">{{ worker.name }}</span>
-                    <span class="des">{{ worker.designation }}</span>
-                </li>
-                {% endfor %}
-            </ul>
-            <div class="button">
-                <a href="/worker">See All</a>
-            </div>
-        </div> -->
           <div class="top-sales box">
             <div class="title">Employees</div>
             <ul class="top-sales-details">
               <li>
-                <a href="#">
-                  <img src="{% static 'images\engi.jpg' %}"  />
+                
+                  
                   <span class="emp">Saravan</span>
-                </a>
+                
                 <span class="des">Engineer</span>
               </li>
               <li>
-                <a href="#">
-                  <img src="{% static 'images\man.jpg' %}"/>
+                
+                  
                   <span class="emp">surya</span>
-                </a>
+                
                 <span class="des">Manager</span>
               </li>
               <li>
-                <a href="#">
-                  <img src="{% static 'images\sup.jpg' %}" />
+                
+                  
                   <span class="emp">Raja</span>
-                </a>
+                
                 <span class="des">Super Visor</span>
               </li>
               <li>
-                <a href="#">
-                  <img src="{% static 'images\mas.jpg' %}"  />
+                
+                  
                   <span class="emp">Rajesh</span>
-                </a>
+          
                 <span class="des">Mason</span>
               </li>
               <li>
-                <a href="#">
-                  <img src="{% static 'images\help.jpg' %}" />
+                
+                  
                   <span class="emp">Kumar</span>
-                </a>
+              
                 <span class="des">Helper</span>
               </li>
               <li>
-                <a href="#">
-                  <img src="{% static 'images\paint.jpg' %}"/>
+                
+                  
                   <span class="emp">Ramesh</span>
-                </a>
+              
                 <span class="des">Painter</span>
               </li>
               <li>
-                <a href="#">
-                  <img src="{% static 'images\car.jpg' %}"/>
+                
+                  
                   <span class="emp">Ganesh</span>
-                </a>
+               
                 <span class="des">Carpenter</span>
               </li>
             </ul>
