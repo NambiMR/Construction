@@ -8,7 +8,8 @@
     <link rel="stylesheet" href="{% static 'css/form.css' %}" />
 </head>
 <body>
-    <div class="container-fluid" style="margin-top:50px;">
+
+    <div class="container" style="margin-top:50px;">
         <div class="col-md-offset-4 col-md-4">
             <form method="POST" action="/update_worker/{{worker.id}}/">
                 {% csrf_token %}
