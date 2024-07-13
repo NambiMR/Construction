@@ -108,7 +108,20 @@ footer{
 .col .contact-details i{
     margin-right:15px;
 }
+.bottom-bar {
+    background: #f18930;
+    text-align: center;
+    width: 100%;
+    bottom: 0;
+    margin-bottom:-45px;
+}
 
+.bottom-bar p {
+    color: #343434;
+    margin: 0;
+    font-size: 16px;
+    padding: 7px;
+}
 /********** Responsive Design ********/
 @media(max-width:900px)
 {
@@ -131,4 +144,8 @@ footer{
     text-align: left;
     margin-bottom: 20px;
   }
+  .bottom-bar p {
+    font-size: 14px;
+    padding: 5px;
+}
 }

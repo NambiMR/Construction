@@ -1,128 +1,31 @@
-{% load static%}
+
+{% include 'nc/inc/dashboard.html' %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Project Details</title>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> 
-    <link rel="stylesheet" href="{% static 'css/adminnav.css' %}" />
-    <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="{% static 'css/project.css' %}">
 </head>
 <body>
-  <div class="sidebar">
-    <div class="logo-details"> 
-      <i class="bx bx-user"></i> 
-      <span class="logo_name">Naachiyar</span>
-    </div>    
-    <ul class="nav-links">
-      <li>
-        <a href="/dashboard" class="active">
-          <i class="bx bx-grid-alt"></i>
-          <span class="links_name">Dashboard</span>
-        </a>
-      </li>
-      <li>
-        <a href="/">
-          <i class="bx bx-home"></i>
-          <span class="links_name">Home</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <i class="bx bx-id-card"></i>
-          <span class="links_name">Attendance</span>
-        </a>
-      </li>
-      <li>
-        <a href="/worker">
-          <i class="bx bx-group"></i>
-          <span class="links_name">Workers</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <i class="bx bx-dollar-circle"></i>
-          <span class="links_name">Salary</span>
-        </a>
-      </li>
-      <li>
-        <a href="/project">
-          <i class="bx bx-task"></i>
-          <span class="links_name">Projects</span>
-        </a>
-      </li>
-      <li>
-        <a href="/hiering">
-          <i class="bx bx-user-plus"></i>
-
-          <span class="links_name">Hiering</span>
-        </a>
-      </li>
-      <li>
-        <a href="#">
-          <i class="bx bx-cart"></i>
-          <span class="links_name">Stocks</span>
-        </a>
-      </li>
-      <li>
-        <a href="/adminquote">
-          <i class="bx bx-message-rounded-detail"></i>
-          <span class="links_name">Quote</span>
-        </a>
-      </li>
-      
-      <li>
-        <a href="/adminfeedback">
-          <i class="bx bx-message"></i>
-          <span class="links_name">Feedback</span>
-        </a>
-      </li>
-      <li>
-        
-      <li class="log_out">
-        <a href="#">
-          <i class="bx bx-log-out"></i>
-          <span class="links_name">Log out</span>
-        </a>
-      </li>
-    </ul>
-  </div>
-  <section class="home-section">
-    <nav>
-      <div class="sidebar-button">
-        <i class="bx bx-menu sidebarBtn"></i>
-        <span class="dashboard">Dashboard</span>
-      </div>
-      <div class="search-box">
-        <input type="text" placeholder="Search..." />
-        <i class="bx bx-search"></i>
-      </div>
-      <div class="profile-details">
-        <img src="{% static 'images\profile.jpg' %}" />
-        <span class="admin_name">Md Ashfaq </span>
-        
-      </div>
-    </nav>
-  <div class="container">
-    <h2 align="center">Project Details</h2>
-    <!-- Button to add new project -->
-    <a class="btn btn-success" href="/addproject">Add New</a>
-              {% if messages %}
-                  {% for message in messages %}
-                      {% if message.tags == 'error' %}
-                        <div class="alert alert-danger">
-                          {{ message }}
-                        </div>
-                      {% else %}
-                        <div class="alert alert-{{ message.tags }}">
-                          {{ message }}
-                        </div> 
-                      {% endif %} 
-                   {% endfor %} 
-              {% endif %} 
-            </div>
+  
+  <div class="container content">
+    <h2 class="text-center">Project Details</h2>
+    <div class="mb-3">
+      <a class="btn btn-success" href="/addproject">Add New</a>
+      {% if messages %}
+        {% for message in messages %}
+          <div class="alert alert-{{ message.tags }}">
+            {{ message }}
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
         <tr>
@@ -138,32 +41,31 @@
         </tr>
       </thead>
       <tbody>
-          {% for project in projects %}
-            <tr>
-                <td>{{ project.project_name }}</td>
-                <td>{{ project.client_name }}</td>
-                <td>{{ project.mobile }}</td> 
-                <td>{{ project.location }}</td>
-                <td>{{ project.budget }}</td>
-                <td>{{ project.s_date }}</td> 
-                <td>{{ project.status }}</td>
-                <td>{{ project.e_date }}</td>
-          <td>
-            <a href="/update_project/{{project.id}}" class="btn btn-primary">Update</a>
-            <a href="/delete_project/{{ project.id }}" class="btn btn-danger">Delete</a>
-          </td>
-        </tr>
+        {% for project in projects %}
+          <tr>
+            <td>{{ project.project_name }}</td>
+            <td>{{ project.client_name }}</td>
+            <td>{{ project.mobile }}</td>
+            <td>{{ project.location }}</td>
+            <td>{{ project.budget }}</td>
+            <td>{{ project.s_date }}</td>
+            <td>{{ project.status }}</td>
+            <td>{{ project.e_date }}</td>
+            <td>
+              <a href="/update_project/{{ project.id }}" class="btn btn-primary"><i class="fas fa-edit"></i></a>
+              <a href="/delete_project/{{ project.id }}" class="btn btn-danger"><i class="fas fa-trash-alt"></i></a>
+            </td>
+          </tr>
         {% endfor %}
       </tbody>
     </table>
   </div>
 
-  <!-- Bootstrap JS and dependencies -->
+  <!-- Include your JavaScript files -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <script src="{% static 'js\msg.js' %}"></script>
-  <script src="{% static 'js\admin.js' %}"></script> 
+  <script src="{% static 'js/msg.js' %}"></script>
+  <script src="{% static 'js/admin.js' %}"></script>
 </body>
 </html>

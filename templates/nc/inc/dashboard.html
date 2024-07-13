@@ -1,0 +1,91 @@
+
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+</head>
+<body>
+    <div class="sidebar">
+        <div class="logo-details"> 
+          <i class="bx bx-user"></i> 
+          <span class="logo_name">Naachiyar</span>
+        </div>    
+        <ul class="nav-links">
+          <li>
+            <a href="/dashboard" class="active">
+              <i class="bx bx-grid-alt"></i>
+              <span class="links_name">Dashboard</span>
+            </a>
+          </li>
+          <li>
+            <a href="/worker">
+              <i class="bx bx-group"></i>
+              <span class="links_name">Workers</span>
+            </a>
+          </li>
+    
+          <li>
+            <a href="/project">
+              <i class="bx bx-task"></i>
+              <span class="links_name">Projects</span>
+            </a>
+          </li>
+          <li>
+            <a href="/hiering">
+              <i class="bx bx-user-plus"></i>
+              <span class="links_name">Hiering</span>
+            </a>
+          </li>
+        
+          <li>
+            <a href="/adminquote">
+              <i class="bx bx-message-rounded-detail"></i>
+              <span class="links_name">Quote</span>
+            </a>
+          </li>
+    
+          <li>
+            <a href="/adminfeedback">
+              <i class="bx bx-message"></i>
+              <span class="links_name">Feedback</span>
+            </a>
+          </li>
+    
+          <li id="darkModeToggleBtn">
+            <a href="#">
+                <i class="bx bx-moon"></i>
+                <span class="links_name">Dark Mode</span>
+            </a>
+        </li>
+        
+          <li class="log_out">
+            <a href="#">
+              <i class="bx bx-log-out"></i>
+              <span class="links_name">Log out</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+      <section class="home-section">
+        <nav>
+          <div class="sidebar-button">
+            <i class="bx bx-menu sidebarBtn"></i>
+            <span class="dashboard">Dashboard</span>
+          </div>
+          <div class="search-box">
+            <input type="text" placeholder="Search..." />
+            <i class="bx bx-search"></i>
+          </div>
+          <div class="profile-details">
+            <img src="{% static 'images\profile.jpg' %}" />
+            <span class="admin_name">Md Ashfaq </span>
+          </div>
+        </nav>
+</body>
+</html>
+
+  

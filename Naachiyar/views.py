@@ -93,10 +93,10 @@ def dashboard(request):
     if not email:
         return redirect('Naachiyar:alogin')
     else: """
-    return render (request,"admin.html")
+    return render (request,"nc/admin.html")
 def projects(request):
     return render (request,"nc/projects.html")
-def temple(request):
+""" def temple(request):
     return render (request,"temple.html")
 def church(request):
     return render (request,"church.html")
@@ -111,19 +111,19 @@ def factory(request):
 def hospital(request):
     return render (request,"hospital.html")
 def mall(request):
-    return render (request,"mall.html")
+    return render (request,"mall.html") """
 
 def Feedback_show(request):
     feedback= Feedback.objects.all()
-    return render(request, "adminfeedback.html", {'feedback': feedback})
+    return render(request, "nc/adminfeedback.html", {'feedback': feedback})
 
 def Quote_show(request):
     quote= Quote.objects.all()
-    return render(request, "adminquote.html", {'quote': quote})
+    return render(request, "nc/adminquote.html", {'quote': quote})
 
 def hiering(request):
     job= Job.objects.all()
-    return render(request, "hiering.html", {'job': job})
+    return render(request, "nc/hiering.html", {'job': job})
 
 
 
@@ -236,7 +236,7 @@ def worker_list(request):
         return redirect('Naachiyar:worker_list')
     
     workers = Worker.objects.all()
-    return render(request, 'workers.html', {'workers': workers})
+    return render(request, 'nc/workers.html', {'workers': workers})
 
 def add_worker(request):
     
@@ -252,7 +252,7 @@ def add_worker(request):
 
     else:
         form=AddWorker()
-    return render(request,"addworker.html",{'form':form})
+    return render(request,"nc/addworker.html",{'form':form})
 
 def delete_worker(request,id):
     worker = get_object_or_404(Worker, id=id)
@@ -286,7 +286,7 @@ def update_worker(request, id):
         return redirect('Naachiyar:worker_list')
 
     # Pass the project instance to the template
-    return render(request, 'update_worker.html', {'worker': worker})
+    return render(request, 'nc/update_worker.html', {'worker': worker})
 
 
 
@@ -316,7 +316,7 @@ def project_list(request):
         return redirect('Naachiyar:project_list')
     
     projects = Project.objects.all()
-    return render(request, 'project.html', {'projects': projects})
+    return render(request, 'nc/project.html', {'projects': projects})
 
 def add_project(request):
     
@@ -332,7 +332,7 @@ def add_project(request):
 
     else:
         project=AddProject()
-    return render(request,"addproject.html",{'project':project})
+    return render(request,"nc/addproject.html",{'project':project})
 
 def delete_project(request,id):
     project = get_object_or_404(Project, id=id)
@@ -363,7 +363,7 @@ def update_project(request, id):
         messages.success(request, 'Project updated successfully.')
         return redirect('Naachiyar:project_list')
 
-    return render(request, 'update_project.html', {'project': project})
+    return render(request, 'nc/update_project.html', {'project': project})
 
     """ project = get_object_or_404(Project, id=id)
 
@@ -380,13 +380,8 @@ def update_project(request, id):
         return redirect('Naachiyar:project_list')
 
     # Pass the project instance to the template """
-def project_dashboard(request):
-    project = Project.objects.all()  # Fetch all projects
-    return render(request, 'admin.html', {'project': project}) 
-
-
 
 def project_count(request):
     projects_count = Project.objects.count()
-    return render(request, 'project.html', {'Projects_count': projects_count})
+    return render(request, 'nc/project.html', {'Projects_count': projects_count})
 

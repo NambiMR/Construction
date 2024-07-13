@@ -1,4 +1,4 @@
-<!-- {% include 'nc/inc/navbar.html' %}
+{% include 'nc/inc/navbar.html' %}
 {% load static%}
 <!DOCTYPE html>
 <html lang="en">
@@ -6,13 +6,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Job Application</title>
+    <title> {% block title %}
+        NC | Job
+        {% endblock title %}</title>
     <link rel="stylesheet" href="{% static 'css/job.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
 
 </head>
 <body>
-    <div class="container">
+    <div class="job-container">
         <div class="apply-box">
             <h1>Job Application</h1>
             <form method="POST">
@@ -36,15 +38,15 @@
                     </div>
                     <div class="form-conrol">
                         
-                        <select name="role" id="jobe-role">
+                        <select class="select" name="role" id="jobe-role">
                             <option value="" disabled selected>Select Job Role</option>
-                            <option value="frontend">Engineer</option>
-                            <option value="frontend">Super Visor</option>
-                            <option value="frontend">Mason</option>
-                            <option value="frontend">Carpentor</option>
-                            <option value="frontend">Electrician</option>
-                            <option value="frontend">Plumber</option>
-                            <option value="frontend">Helper</option>
+                            <option value="builder">Engineer</option>
+                            <option value="builder">Super Visor</option>
+                            <option value="builder">Mason</option>
+                            <option value="builder">Carpentor</option>
+                            <option value="builder">Electrician</option>
+                            <option value="builder">Plumber</option>
+                            <option value="builder">Helper</option>
                         </select>
                     </div>
                     <div class="form-conrol">
@@ -63,8 +65,8 @@
 
                     </div>
                     <div class="form-conrol">
-                        <label for="first-name">Registration Date</label>
-                        <input type="date" id="first-name " name="date" value="2024-10-1026">
+                        <label for="apply-date">Registration Date</label>
+                        <input type="date" id="apply-date" name="date" value="2024-10-1026">
 
                     </div>
                     <div class="button-container">
@@ -78,4 +80,4 @@
     </div>
     {% include 'nc/inc/footer.html' %}
 </body>
-</html>  -->
+</html> 

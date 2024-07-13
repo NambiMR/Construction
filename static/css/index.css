@@ -66,7 +66,7 @@
     width: 130px;
     height: 50px;
     border-radius: 5px;
-    border: solid 2px #faf9f9;
+    border: none;
     background: #0A2558;
     color: white;
     cursor: pointer;
@@ -190,11 +190,31 @@
       margin-bottom: 10px;
     }
   }
+  
+  @media (max-width: 480px) {
+    .content h1 {
+        font-size: 30px;
+        margin-top: 50px;
+    }
 
+    .content p {
+        font-size: 20px;
+        line-height: 30px;
+    }
+
+    .quote {
+        width: 90px;
+        height: 35px;
+    }
+
+    .animate-charcter {
+        font-size: 50px;
+    }
+}
 .services-section {
     text-align: center;
     margin: 50px 0;
-  }
+}
   
   .services-title {
     font-size: 50px;
@@ -216,7 +236,7 @@
   }
   
   .card:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: all 1s;
     cursor: pointer;
   }
@@ -230,7 +250,10 @@
   .card-body {
     text-align: center;
   }
-  
+  .card-title a{
+    text-decoration: none;
+    color: #0A2558;
+  }
   .text {
     position: absolute;
     padding: 10px;
@@ -246,11 +269,14 @@
     opacity: 0;
     transform: scale(0.7);
   }
-  
-  .text h1 {
-    font-size: 24pt;
+  .text a{
+    text-decoration: none;
+    color: white;
   }
-  
+  .text h1 {
+    font-size: 20px;
+    color: white;
+  }
   .text h1::first-letter {
     color: red;
     font-weight: 900;

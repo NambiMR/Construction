@@ -1,73 +1,58 @@
-*{
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
-    body { 
-        
-        overflow-x: hidden;
-        
-    } 
 
+.container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px; /* Adjust this value as needed */
+}
 
-    #formContainer { 
-        margin-bottom: 20px; 
-    } 
-    button { 
-        margin: 10px; 
-        padding: 8px 16px; 
-        background-color: #0A2558; 
-        color: #fff; 
-        border: none; 
-        border-radius: 4px; 
-        cursor: pointer; 
-    } 
-    .edit{
-        background-color: blue;
-        border-radius: 5px;
-    }
-    .edit:hover{
-        background-color: rgb(1, 1, 148);
-    }
-    .delete{
-        background-color: rgb(255, 0, 0);
-        border-radius: 5px;
-    }
-    .delete:hover{
-        background-color: rgb(179, 3, 3);
-    }
+.content {
+    margin-top: 80px; /* Adjust this value as needed to move the table down */
+}
 
-    table { 
-        border-collapse: collapse; 
-        width: 80%; 
-        margin: 4rem auto;
-    
-    } 
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
 
-    th, 
-    td { 
-        border: 1px solid #002077; 
-        padding: 8px; 
+.table {
+    margin-top: 20px;
+}
 
-    } 
+.table thead th {
+    background-color: #343a40;
+    color: white;
+}
 
-    th { 
-        background-color: #0A2558; 
-        color: #fff; 
-    } 
-    .Action{
-        width: 150px;
-    }
-    
-    .logo{
-        font-size: 30pt;
-    }
-    
-    .add{
-        position: relative;
-        top: 50px;
-        left: 132px;
-        border-radius: 5px;
+.action-icons {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Optional: Center align icons vertically */
+}
 
-    }
-    
+.alert {
+    margin-top: 20px;
+}
+
+.apply-btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #ff4c4c;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+.apply-btn:hover {
+    background-color: #ff1a1a;
+}
