@@ -4,41 +4,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>NC | Contact</title>
     <link rel="stylesheet" href="{% static 'css/contact.css' %}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"/>
-    <script src="{%static 'js/index.js'%}"></script>
+    <link rel="stylesheet" href="{% static 'css/navbar.css' %}">
+    <script src="https://kit.fontawesome.com/c32adfdcda.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <!-- Include the Navbar -->
+    {% include 'nc/inc/navbar.html' %}
 
-    <div class="banner" id="Home">
-    
-        <header class="header">
-        <a href="/" id="logo">
-            <img src="{% static 'images\logo1.png' %}" alt="Logo">
-        </a>
-        <navbar class="nav">
-            <a href="/"><i class="fas fa-home"></i> HOME</a>
-            <a href="/projects"><i class="fas fa-folder"></i> PROJECTS</a>
-            <a href="/quote"><i class="fas fa-file-alt"></i> GET A QUOTE</a>
-            <a href="/job"><i class="fas fa-briefcase"></i> GET A JOB</a>
-        </navbar>        
-        <div class="icon-header">
-            <div id="menu-bar" class="fas fa-bars"></div>
-            <div id="search-bar" class="fas fa-search"></div>
-        </div>
-        <div class="search-form">
-            <input type="search" id="search-form" placeholder="search here">
-        </div>
-    </header>
-    </div>
-    
     <div class="form-container">
         <div class="wrapper">
-            <h2>contact us</h2>
+            <h2>Contact Us</h2>
             <div class="form-section">
-
-                
                 <!-- left side -->
                 <div class="form-details">
                     <ul>
@@ -48,7 +26,9 @@
                             </div>
                             <div class="content">
                                 <strong>Location:</strong>
-                                <a href="https://www.google.com/maps/search/Sokkalingapuram,+tisayanvilai/@8.2974563,77.828425,16z?entry=ttu"><p>Chockalingapuram,tamil nadu,627-651</p></a>
+                                <a href="https://www.google.com/maps/search/Sokkalingapuram,+tisayanvilai/@8.2974563,77.828425,16z?entry=ttu">
+                                    <p>Chockalingapuram, Tamil Nadu, 627-651</p>
+                                </a>
                             </div>
                         </li>
                         <li>
@@ -65,7 +45,7 @@
                                 <i class="fa-brands fa-whatsapp"></i>
                             </div>
                             <div class="content">
-                                <strong>whatsapp:</strong>
+                                <strong>WhatsApp:</strong>
                                 <a href="https://api.whatsapp.com/send?phone=6374618016">6374618016</a>
                             </div>
                         </li>
@@ -73,26 +53,32 @@
                 </div>
                 <!-- right side -->
                 <div class="input-field">
-                    <form method="post" action="">
-                        {% csrf_token%}
+                    <form action="" method="post" class="form">
+                        {% csrf_token %}
                         <div class="form-group">
-                            <input type="text" name="name" class="form-control" required="required" />
-                            <span class="form-label">Name</span>
+                            <input type="text" name="fullname" id="name" class="form-control" required>
+                            <span>Full Name</span>
                         </div>
                         <div class="form-group">
-                            <input type="email" name="email" class="form-control" required="required" />
-                            <span class="form-label">Email</span>
+                            <input type="email" name="email" id="email" class="form-control" required>
+                            <span>Email</span>
                         </div>
                         <div class="form-group">
-                            <textarea name="subject" id="" cols="30" rows="10" class="form-control" required="required"></textarea>
-                            <span class="form-label">Write</span>
+                            <input type="text" name="mobile" id="mobile" class="form-control" required>
+                            <span>Mobile</span>
                         </div>
-                        <button type="submit">Send</button>
+                        <div class="form-group">
+                            <textarea name="message" id="message" rows="4" class="form-control" required></textarea>
+                            <span>Message</span>
+                        </div>
+                        <div class="form-group">
+                            <button type="submit" class="btn">Submit</button>
+                        </div>
                     </form>
                 </div>
-
             </div>
         </div>
     </div>
+    {% include 'nc/inc/footer.html' %}
 </body>
 </html>

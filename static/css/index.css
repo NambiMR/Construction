@@ -4,94 +4,32 @@
     box-sizing: border-box;
     text-decoration: none; 
 }
-.banner{
+.banner {
     width: 100%;
     height: 100vh;
-   /*  background: linear-gradient(rgba(255, 255, 255, 0.7),rgba(254, 254, 254, 0.7)); */
     background-size: 100% 100%;
     background-position: center;
     animation: slider 25s linear infinite;
 }
-@keyframes slider{
-    0%{
+
+@keyframes slider {
+    0% {
         background-image: url(/static/images/img2.jpg);
     }
-    25%{
+    25% {
         background-image: url(/static/images/img3.jpg);
     }
-    50%{
+    50% {
         background-image: url(/static/images/img5.jpeg);
     }
-    75%{
+    75% {
         background-image: url(/static/images/img6.jpeg);
     }
-    100%{
+    100% {
         background-image: url(/static/images/img2.jpg);
     }
-
-}
-.header{
-    padding: 20px;
-    position: fixed;
-    left: 0;
-    right:0 ;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background:#0A2558;
-    height: 100px;
-    z-index: 999;
-    
-
-}
-#logo img {
-    width: 130px; /* Adjust the width of the logo */
-    height: auto;  
-}
-.nav{
-    margin-left: 400px;
-}
-.nav a{
-    color: rgb(250, 247, 247);
-    font-size: 20px;
-    margin-left: 30px;
-    text-decoration: none;
-}
-.nav a:hover{
-color: #f18930;
-}
-.icon-header div{
-    color: rgb(255, 253, 253);
-    margin-left: 10px;
-    font-size: 20px;
-    cursor: pointer;
-}
-.icon-header div:hover{
-    color: #f18930;
-}
-#menu-bar{
-    display: none;
-}
-.nav.active{
-    top: 100%;
-}
-.search-form{
-    width: 40%;
-    position: absolute;
-    top:-110%;
-    right: 2rem;
 }
 
-.search-form input{
-    width: 100%;
-    padding: 1rem;
-    border-radius: 14px;
-    border: 1px solid rgb(249, 249, 249);
-    box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
-}
-.search-form.active{
-    top: 110%;
-}
 .content{
     width: 100%;
     position: absolute;
@@ -99,6 +37,7 @@ color: #f18930;
     transform: translateY(-50%);
     text-align: center;
     color: #0A2558;
+    z-index: 1;
 }
 .content h1{
     font-size: 50px;
@@ -126,11 +65,13 @@ color: #f18930;
     margin-top: 50px;
     width: 130px;
     height: 50px;
-    border-radius: 20px;
-    background: rgb(255, 103, 103);
+    border-radius: 5px;
+    border: solid 2px #faf9f9;
+    background: #0A2558;
     color: white;
+    cursor: pointer;
     box-shadow: 7px 5px 5px black;
-    animation: change-background 5s linear infinite;
+    animation: change-background  5s linear infinite ;
     
 }
 @keyframes change-background {
@@ -169,106 +110,128 @@ color: #f18930;
       font-weight: 700;
 }
 
-/* .animate-charcter:hover{
-    font-weight: 1000;
-}
- */
 @keyframes textclip {
   to {
     background-position: 150% center;
   }
 }
-
-
-.welcome{
+.welcome {
     padding: 3rem 7%;
-    
-    
-}
-.main-welcome{
-    display: flex; 
+  }
+  
+  .main-welcome {
+    display: flex;
     justify-content: center;
     align-items: center;
     gap: 10px;
     flex-wrap: wrap;
     margin-top: 10px;
     padding-bottom: 100px;
-    padding-top:150px ;
+    padding-top: 150px;
     background-color: white;
-
-    
-
-}
-.welcome-text h1{
+  }
+  
+  .welcome-text h1 {
     font-size: 40px;
     color: #f18930;
-}
-.welcome-text p{
+  }
+  
+  .welcome-text p {
     font-size: 1.5rem;
-    padding:30px 0;
+    padding: 30px 0;
     color: #0A2558;
-}
-.welcome-text a{
+  }
+  
+  .welcome-text a {
     padding: 15px 10px;
     background: #f18930;
     color: rgb(0, 0, 0);
     border-radius: 8px;
     text-decoration: none;
-    
-}
-
-.img{
+  }
+  
+  .img {
     box-shadow: 15px 25px 65px 15px rgb(100, 99, 99);
     padding: 30px;
     margin-left: 50px;
-}
-.card-title1{
-    text-shadow: 2px 2px 1px rgb(255, 255, 255);
-}
-.card-title2{
-    text-shadow: 2px 2px 1px rgb(255, 255, 255);
-}
-.card-title3{
-    text-shadow: 2px 2px 1px rgb(255, 255, 255);
-}
-.card-title4{
-    text-shadow: 2px 2px 1px rgb(255, 255, 255);
-}
-.card-text{
-    color: darkblue;
-    
-    
-}
-.card{
-    
-    margin-top: 110px;
-    margin-inline-start: 20px;
+  }
+  
+  @media (max-width: 991px) {
+    .main-welcome {
+      flex-direction: column;
+      padding-top: 50px;
+    }
+  
+    .img {
+      margin-left: 0;
+    }
+  
+    .welcome-text h1 {
+      font-size: 30px;
+    }
+  
+    .welcome-text p {
+      font-size: 1.2rem;
+    }
+  }
+  
+  @media (max-width: 767px) {
+    .welcome-text h1 {
+      font-size: 25px;
+    }
+  
+    .welcome-text p {
+      font-size: 1rem;
+    }
+  
+    .img img {
+      width: 100%;
+      height: auto;
+      margin-bottom: 10px;
+    }
+  }
+
+.services-section {
+    text-align: center;
+    margin: 50px 0;
+  }
+  
+  .services-title {
+    font-size: 50px;
+    color: #0A2558;
+    margin-bottom: -50px;
+    font-weight: bold;
+  }
+  
+  .card {
+    margin-top: 75px;
     position: relative;
     background-color: rgb(255, 255, 255);
-    
-}
-
-.card h5:hover{
-    color: #ff000d;
-}
-
-.card:hover{
-    
+  }
+  
+  .card-img {
+    width: 100%;
+    height: 200px; 
+    object-fit: cover; 
+  }
+  
+  .card:hover {
     transform: scale(1.1);
-    transition: all 1s ;
+    transition: all 1s;
     cursor: pointer;
-
-}
-.card:hover .text{
+  }
+  
+  .card:hover .text {
     opacity: 1;
     transform: scale(1);
     transition: .4s;
-}
-.container{
-    padding:20px;
-}
+  }
   
-.text{
+  .card-body {
+    text-align: center;
+  }
+  
+  .text {
     position: absolute;
     padding: 10px;
     overflow: hidden;
@@ -276,54 +239,31 @@ color: #f18930;
     place-content: center;
     height: 74%;
     width: 100%;
-    background: rgb(0, 0, 0,.5);
+    background: rgba(0, 0, 0, 0.5);
     color: white;
     text-align: center;
     font-size: 14px;
     opacity: 0;
     transform: scale(0.7);
-}  
-.text h1{
+  }
+  
+  .text h1 {
     font-size: 24pt;
-
-}
-.text h1::first-letter{
+  }
+  
+  .text h1::first-letter {
     color: red;
     font-weight: 900;
-}
-
-
-
-
-
-@media (max-width:767px) {
-    html{
-        font-size: 55%;
+  }
+  
+  @media (max-width: 991px) {
+    .col-12.col-sm-6.col-md-4 {
+      width: 50%;
     }
-    #menu-bar{
-        display: initial;
+  }
+  
+  @media (max-width: 901px) {
+    .col-12.col-sm-6.col-md-4 {
+      width: 100%;
     }
-    .header{
-        padding: 2rem;
-    }
-    .nav{
-        position: absolute;
-        top: 100%;
-        width: 80%;
-        left: 10%;
-        top: -1000%;
-        box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
-        border-radius: 13px;
-        transition: .5s;
-    }
-    .nav a{
-        color: black;
-        display: block;
-        margin: 1rem;
-        font-size: 1.5rem;
-    }
-    .search-form{
-        width: 70%;
-        
-    }
-}
+  }

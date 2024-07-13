@@ -1,0 +1,75 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Footer </title>
+
+    <link rel="stylesheet" href="{% static 'css\footer.css' %}">
+    
+    <!----- FONT AWESOME CSS FOR ICONS FONTS ------>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+
+
+</head>
+<body>
+     <footer>
+        <div class="container">
+            <div class="row">
+                  <div class="col" id="company">
+                    <!-- <img src="{% static 'images/logo1.png' %}" alt="Logo"> -->
+                      <p>
+                        We are specialized in designings, make your business a brand.
+                        Try our premium services.
+                      </p>
+                      <div class="social">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                      </div>
+                  </div>
+
+
+                  <div class="col" id="services">
+                     <h3>Services</h3>
+                     <div class="links">
+                        <a href="#">3D Modeling</a>
+                        <a href="#">2D Modeling</a>
+                        <a href="#">Structural Design</a>
+                        <a href="#">Architechture Design</a>
+                     </div>
+                  </div>
+
+                  <div class="col" id="useful-links">
+                     <h3>Links</h3>
+                     <div class="links">
+                        <a href="/#About">About</a>
+                        <a href="/#Services">Services</a>
+                        <a href="/projects">Projects</a>
+                        <a href="/quote">Get a Quote</a>
+                        <a href="/feedback">Feedback</a>
+                     </div>
+                  </div>
+
+                  <div class="col" id="contact">
+                      <h3>Contact</h3>
+                      <div class="contact-details">
+                         <i class="fa fa-location"></i>
+                         <p>B2-42, BMC Bazzar, <br> Tsy,Tamilnadu</p>
+                      </div>
+                      <div class="contact-details">
+                         <i class="fa fa-phone"></i>
+                         <p>+91-8755856858</p>
+                      </div>
+                  </div>
+            </div>
+
+            
+        </div>
+     </footer>
+</body>
+</html> 

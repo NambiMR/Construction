@@ -59,7 +59,7 @@ def login(request):
 
             return redirect('Naachiyar:home') 
         else:
-            return render(request,'login.html')
+            return render(request,'nc/login.html')
         
 def alogin(request):
     if request.method == 'POST':
@@ -86,7 +86,7 @@ def alogin(request):
         else:
             return render(request,'alogin.html')
 def home(request):
-    return render (request,"index.html")
+    return render (request,"nc/index.html")
 def dashboard(request):
     """ email = request.session.get('email')
  
@@ -95,7 +95,7 @@ def dashboard(request):
     else: """
     return render (request,"admin.html")
 def projects(request):
-    return render (request,"projects.html")
+    return render (request,"nc/projects.html")
 def temple(request):
     return render (request,"temple.html")
 def church(request):
@@ -128,7 +128,7 @@ def hiering(request):
 
 
 def footer(request):
-    return render(request,'footer.html')
+    return render(request,'nc/footer.html')
 
 
 def contact(request):
@@ -141,17 +141,10 @@ def contact(request):
         contact.email=email
         contact.subject=subject
         contact.save()
-        return render(request,"index.html")
-    return render(request,"contact.html")
+        return render(request,"nc/index.html")
+    return render(request,"nc/contact.html")
 
 def quote(request):
-
-    email = request.session.get('email')
- 
-    if not email:
-        return redirect('Naachiyar:login')
-    else:
-
         if request.method=="POST":
             quote=Quote()
             name=request.POST.get("name")
@@ -171,16 +164,10 @@ def quote(request):
             quote.e_date=e_date
             quote.location=location
             quote.save()
-            return render(request,"index.html")
-        return render(request,"quote.html")
+            return render(request,"nc/index.html")
+        return render(request,"nc/quote.html")
 
 def job(request):
-    email = request.session.get('email')
- 
-    if not email:
-        return redirect('Naachiyar:login')
-    else:
-
         if request.method=="POST":
             job=Job()
             name=request.POST.get("name")
@@ -202,8 +189,8 @@ def job(request):
             job.pincode=pincode
             job.date=date
             job.save()
-            return render(request,"index.html")
-        return render(request,"job.html")
+            return render(request,"nc/index.html")
+        return render(request,"nc/job.html")
 
 
 
@@ -224,7 +211,7 @@ def feedback(request):
         feedback.Rate=Rate
         feedback.save()
         return render(request,"index.html")
-    return render(request,"feedback.html")
+    return render(request,"nc/feedback.html")
 
 
 
@@ -304,11 +291,7 @@ def update_worker(request, id):
 
 
 def project_list(request):
-    """ email = request.session.get('email')
-    print(email)
-    if not email:
-        return redirect('Naachiyar:alogin') #return render(request, 'admin_panel.html', {'email': email})
-    else: """
+    
     if request.method == 'POST':
         project_name = request.POST.get("pname")
         client_name = request.POST.get("cname")

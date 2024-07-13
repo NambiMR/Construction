@@ -1,91 +1,16 @@
-*{
-    margin: 5px;
-    padding: 5px;
+/* *{
+    margin: 0%;
+    padding: 0px;
     box-sizing: border-box;
 }
 body
     {
-        background-color:#c9c8c6;
+        background: url(/static/images/img2.jpg) no-repeat center;
         background-size: cover;
-        background-repeat: no-repeat;
-        background-position: center center;
-        overflow: hidden;
+        background-attachment: fixed;
+        background-blend-mode: multiply;
+        backdrop-filter: blur(5px);
     }
-    .header{
-        padding: 40px;
-        position: fixed;
-        left: 0;
-        top: 0;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        background:#0A2558;
-        height: 70px;
-        z-index: 999;    
-    }
-    #logo img {
-        width: 130px; /* Adjust the width of the logo */
-        height: auto;  
-    }
-    .nav{
-        margin-left: 400px;
-        
-    
-    }
-    .nav a{
-        color: rgb(250, 247, 247);
-        font-size: 20px;
-        margin-left: 30px;
-        text-decoration: none;
-    }
-    .nav a:hover{
-    color: #f18930;
-    }
-    .icon-header div{
-        color: rgb(255, 253, 253);
-        margin-left: 10px;
-        font-size: 20px;
-        cursor: pointer;
-    }
-    .icon-header div:hover{
-        color: #f18930;
-    }
-    #menu-bar{
-        display: none;
-    }
-    .nav.active{
-        top: 100%;
-    }
-    .search-form{
-        width: 40%;
-        position: absolute;
-        top:-110%;
-        right: 2rem;
-    }
-    
-    .search-form input{
-        width: 100%;
-        padding: 1rem;
-        border-radius: 14px;
-        border: 1px solid rgb(249, 249, 249);
-        box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
-    }
-    .search-form.active{
-        top: 110%;
-    }
-    
-    
- 
-.containner{
-    max-width: 900px;
-    margin: 0px auto;
-}
-h1{
-    display: flex;
-    justify-content: center;
-    color: #f18930;
-}
 .apply-box{
     max-width: 800px;
     padding: 20px;
@@ -138,9 +63,9 @@ button{
     border: transparent solid 2px;
     color: white;
     border-radius:10px;
-    width: 200px; /* Set the width of the button */
-    height: 50px; /* Set the height of the button */
-    padding: 10px 20px; /* Adjust padding for better visual appearance */
+    width: 200px; 
+    height: 50px; 
+    padding: 10px 20px; 
     font-size: 18px;
 
 }
@@ -160,3 +85,96 @@ button:hover{
 
 }
 
+
+body
+    {
+        background-image: url(dk.jpg);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center center;
+        
+    }
+    
+ 
+.containner{
+    max-width: 900px;
+    margin: 0px auto;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    color: white;
+}
+.apply-box{
+    max-width: 600px;
+    padding: 20px;
+    margin: 0px auto;
+    margin-top: 10px;
+    border: 5px solid black;
+    background: rgba(54, 52, 52, 0.423);
+    box-shadow: 0 30px 100px rgba(7, 0, 0, 0.1);
+    border-radius: 50px;
+}
+.title-small{
+    font-size: 20px;
+
+}
+.form-container  {
+    margin-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+    gap:20px;
+    
+}
+.form-conrol{
+    display: flex;
+    flex-direction: column;
+}
+
+label{
+    font-size: 20px;
+    margin-bottom: 2px;
+    font-weight: bolder;
+    color:white;
+}
+input,select,textarea{
+    padding: 6px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 15px;
+}
+input:focus{
+    outline-color: royalblue;
+}
+
+.button-container{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+button{
+    background-color: #0A2258;
+    border: transparent solid 2px;
+    color: white;
+    border-radius:10px;
+    width: 200px; 
+    height: 50px;
+    padding: 10px 20px; 
+    font-size: 18px;
+
+}
+button:hover{
+    
+    background-color: #f18930;
+    border: 2px solid black;
+    transition: 0.3s ease-out;
+    cursor: pointer;
+}
+.textarea-control{
+    grid-column: 1/ span 2;
+
+}
+.textarea-control textarea{
+    width: 100%;
+
+} */

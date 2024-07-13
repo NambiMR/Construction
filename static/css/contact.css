@@ -1,210 +1,157 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-
 }
-body{
-    background: url("static/images/download23.avif") no-repeat center;
-    background-size: cover;
+
+body {
     min-height: 100vh;
     position: relative;
-    overflow: hidden;
-    padding: 10px;
+    background: url(/static/images/img2.jpg) no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-blend-mode: multiply;
+    backdrop-filter: blur(2px);
     
 }
-body::after{
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #c9c8c6;
-    z-index: -8;
-}
 
-
-.header{
-    padding: 20px;
-    position: fixed;
-    left: 0;
-    right:0 ;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background:#0A2558;
-    height: 100px;
-    z-index: 999;
-    margin-top: -10px;
-    
-
-}
-#logo img {
-    width: 130px; /* Adjust the width of the logo */
-    height: auto;  
-}
-.nav{
-    margin-left: 400px;
-    
-
-}
-.nav a{
-    color: rgb(250, 247, 247);
-    font-size: 20px;
-    margin-left: 70px;
-    text-decoration: none;
-}
-.nav a:hover{
-color: #f18930;
-}
-.icon-header div{
-    color: rgb(255, 253, 253);
-    margin-left: 10px;
-    font-size: 20px;
-    cursor: pointer;
-}
-.icon-header div:hover{
-    color: #f18930;
-}
-#menu-bar{
-    display: none;
-}
-.nav.active{
-    top: 100%;
-}
-.search-form{
-    width: 40%;
-    position: absolute;
-    top:-110%;
-    right: 2rem;
-}
-
-.search-form input{
-    width: 100%;
-    padding: 1rem;
-    border-radius: 14px;
-    border: 1px solid rgb(249, 249, 249);
-    box-shadow: rgba(0,0,0,0.24) 0px 3px 8px;
-}
-.search-form.active{
-    top: 110%;
-}
-.form-container{
+.form-container {
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 610px;
-    width: 1350px;
-    margin: 130px 80px;
-
-}
-.wrapper{
-    max-width: 1140px;
-    margin: 0 auto;
-    padding: 0 1rem;
-    background: #0A2558;
     width: 100%;
-    height: 100%;
+    margin: 80px 0;
+    
+}
+
+.wrapper {
+    max-width: 1140px;
+    margin-top: 80px;
+    padding: 0 1rem;
+    background: transparent;
+    backdrop-filter: blur(300px);
+    background-color: rgba(40, 37, 37, 0.5);
+    width: 100%;
+    height: auto;
+    border:solid 2px #3e3e41;
     box-shadow: 4px 3px 4px #121213;
     border-radius: 5px;
-
 }
-.wrapper h2{
+
+.wrapper h2 {
     font-size: 3rem;
     color: #f18930;
     padding: 2rem 1rem;
     position: relative;
-    left: 120px;
+    text-align: center;
 }
-.wrapper h2::after{
+
+.wrapper h2::after {
     content: "";
     position: absolute;
     height: 5px;
     top: 100px;
-    left: 20px;
+    left: 50%;
+    transform: translateX(-50%);
     width: 18%;
     background: #f18930;
-    
 }
-.form-section{
-    display: grid;
-    grid-template-columns: repeat(2,1fr);
-    padding: 1rem;
-    
-}
-.form-section ul{
-    list-style-type: none;
+
+.form-section {
     display: flex;
-    flex-direction: column;
-    
+    flex-direction: row;
+    padding: 1rem;
 }
-.form-details .icons{
+
+.form-section ul {
+    list-style-type: none;
+    display: block;
+    padding: 0;
+}
+
+.form-details {
+    width: 45%;
+}
+
+.form-details .icons {
     background: #f18930;
     width: 50px;
     height: 50px;
     margin-right: 1rem;
     border-radius: 50%;
 }
-.form-details li{
+
+.form-details li {
     display: flex;
     align-items: center;
     padding: 1rem;
     color: #ffffff;
-    margin:0.8rem 0;
-    margin-left: 90px;
-    
+    margin: 0.8rem 0;
 }
-.form-details li i{
+
+.form-details li i {
     font-size: 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
     height: inherit;
-    
 }
-.form-details strong{
+
+.form-details strong {
     color: #f18930;
 }
-.form-details a{
+
+.form-details a {
     color: white;
     text-decoration: none;
     cursor: pointer;
 }
-.form-group{
+
+.form-group {
     position: relative;
+    display: flex;
+    justify-content: center; 
+    margin-bottom: 1.5rem;
 }
-.form-group .form-control{
+
+.form-group .form-control {
     width: 100%;
     outline: none;
     border: 1px solid white;
     padding: 0.8rem;
-    margin: 1rem 0;
     resize: none;
     border-radius: 5px;
     font-size: 1rem;
+    background: transparent;
+    color: white;
 }
-.form-group span{
+
+.form-group span {
     position: absolute;
     top: 0.8rem;
     left: 0;
-    padding: 1rem;
+    padding: 0 10px;
     pointer-events: none;
     font-size: 0.8rem;
     color: rgb(194, 193, 193);
     text-transform: uppercase;
     transition: all 0.5s;
 }
+
 .form-group .form-control:valid ~ span,
-.form-group .form-control:focus ~ span{
+.form-group .form-control:focus ~ span {
     background: #0A2558;
     color: white;
     transform: translateX(10px) translateY(-10px);
     font-size: 0.8rem;
-    padding: 0 10px;
 }
-.input-field button{
+
+.input-field {
+    width: 50%;
+}
+
+.input-field button {
     outline: none;
     border: none;
     background: #f18930;
@@ -215,31 +162,40 @@ color: #f18930;
     margin: 1rem 0;
     cursor: pointer;
     transition: 0.4s;
+    display: flex;
+    justify-content: center;
 }
-.input-field button:active{
+
+.input-field button:active {
     transform: scale(1.1);
 }
 
-@media(max-width:768px){
-    .form-section{
-        grid-template-columns:1fr;
-        
-    }
-    .wrapper h2{
-        font-size: 2rem;
-       
-    }
-    .wrapper h2::after{
-        content: "";
-        position: absolute;
-        height: 5px;
-        top: 90px;
-        
-    }
-    .form-details li{
-        
-        margin:0.5rem 0;
-        padding: 0.5rem;
+@media (max-width: 1024px) {
+    .form-section {
+        flex-direction: column;
     }
 
+    .form-details {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .input-field {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .wrapper h2 {
+        font-size: 2rem;
+    }
+
+    .wrapper h2::after {
+        top: 90px;
+    }
+
+    .form-details li {
+        margin: 0.5rem 0;
+        padding: 0.5rem;
+    }
 }

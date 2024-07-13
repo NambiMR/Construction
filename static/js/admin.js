@@ -8,6 +8,9 @@ sidebarBtn.onclick = function() {
   sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
 }
 
+/* function toggleMode(){
+  document.body.classList.toggle("dark-mode")
+} */
 document.addEventListener('DOMContentLoaded', function () {
   const darkModeToggleBtn = document.getElementById('darkModeToggleBtn');
   const body = document.body;

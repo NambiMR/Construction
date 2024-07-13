@@ -1,106 +1,37 @@
-/* *{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-} */
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none; 
-}
-.banner{
-    width: 100%;
-    height: 100vh;
-    /* background-image: linear-gradient(rgba(247, 246, 246, 0.7),rgba(254, 254, 254, 0.7)),url(/static/images/img10.avif); */
-    background-size: 100% 100%;
-    background-position: center;
-    animation: slider 25s linear infinite;
-    
-}
-@keyframes slider{
-    0%{
-        background-image: url(/static/images/img2.jpg);
-    }
-    25%{
-        background-image: url(/static/images/img3.jpg);
-    }
-    50%{
-        background-image: url(/static/images/img5.jpeg);
-    }
-    75%{
-        background-image: url(/static/images/img6.jpeg);
-    }
-    100%{
-        background-image: url(/static/images/img2.jpg);
-    }
-
-}
-
-
-body{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background:#c9c8c6;
-}
-
-
-.header{
-    padding: 20px;
-    position: fixed;
-    left: 0;
-    top: 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 100%;
-    background:#0A2558;
-    height: 90px;
-    z-index: 999;    
-}
-#logo img {
-    width: 130px; /* Adjust the width of the logo */
-    height: auto;  
-}
-.nav{
-    margin-left: 400px;
-}
-.nav a{
-    color: rgb(250, 247, 247);
-    font-size: 20px;
-    margin-left: 30px;
     text-decoration: none;
 }
-.nav a:hover{
-color: #f18930;
-}
-.icon-header div{
-    color: rgb(255, 253, 253);
-    margin-left: 10px;
-    font-size: 20px;
-    cursor: pointer;
-}
-.icon-header div:hover{
-    color: #f18930;
-}
-#menu-bar{
-    display: none;
-}
-.nav.active{
-    top: 100%;
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: url(/static/images/img2.jpg) no-repeat center;
+    background-size: cover;
+    background-attachment: fixed;
+    background-blend-mode: multiply;
+    /* background-color: rgba(40, 37, 37, 0.5); */
+    backdrop-filter: blur(3px);
+    
 }
 
-.container{
+.lists {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 180px;
+}
+.pro-container {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-wrap: center;
-    padding: 60px 80px;
+    flex-wrap: wrap;
+    padding: 20px;
 }
-.container .card{
+.pro-container .pro-card {
     position: relative;
     display: flex;
     justify-content: center;
@@ -109,13 +40,14 @@ color: #f18930;
     height: 280px;
     background: #0A2558;
     border-radius: 20px;
-    box-shadow: 0 35px 80px rgba(0,0,0,0.15);
+    box-shadow: 0 35px 80px rgba(0, 0, 0, 0.15);
+    margin:20px 10px ;
     transition: 1s;
 }
-.container .card:hover{
+.pro-container .pro-card:hover {
     height: 300px;
 }
-.container .card .imgbx{
+.pro-container .pro-card .imgbx {
     position: absolute;
     top: 20px;
     width: 300px;
@@ -125,56 +57,39 @@ color: #f18930;
     overflow: hidden;
     transition: 1s;
 }
-.container .card:hover .imgbx{
+.pro-container .pro-card:hover .imgbx {
     top: -100px;
-    scale: 0.75;
-    box-shadow: 0 15px 45px rgb(0,0,0,0.2);
+    transform: scale(0.75);
+    box-shadow: 0 15px 45px rgb(0, 0, 0, 0.2);
 }
-.container .card .imgbx img{
+.pro-container .pro-card .imgbx img {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height:100%;
+    height: 100%;
     object-fit: cover;
 }
-.container .card .content{
+.pro-container .pro-card .pro-content {
     position: absolute;
     top: 252px;
     width: 100%;
-    padding:0 30px;
+    padding: 0 30px;
     height: 30px;
     overflow: hidden;
     text-align: center;
     transition: 1s;
 }
-.container .card:hover .content{
+.pro-container .pro-card:hover .pro-content {
     top: 130px;
     height: 250px;
 }
-.container .card .content h2{
+.pro-container .pro-card .pro-content h2 {
     font-size: 1.5em;
     font-weight: 700;
     color: #f18930;
 }
-.container .card .content p{
+.pro-container .pro-card .pro-content p {
     color: white;
     font-size: 1.05em;
-}
-/* .container .card .content a{
-    text-decoration: none;
-    top: 15px;
-    display: inline-block;
-    padding: 12px 25px;
-    background-color: #f18930;
-    color: white;
-    font-size: 500;
-    border-radius: 8px;
-} */
-.lists{
-    padding-top: 100px;
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 50px;
-    
 }
