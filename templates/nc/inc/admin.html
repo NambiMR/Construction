@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
-    <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
+    <link rel="stylesheet" href="{% static 'css/admin.css' %}" />
 </head>
 <body>
     <div class="sidebar">
@@ -14,6 +14,12 @@
           <span class="logo_name">Naachiyar</span>
         </div>    
         <ul class="nav-links">
+          <li>
+            <a href="/" class="{% if request.path == '/' %}active{% endif %}">
+              <i class="bx bx-home"></i>
+              <span class="links_name">Home</span>
+            </a>
+          </li>
           <li>
             <a href="/dashboard" class="{% if request.path == '/dashboard' %}active{% endif %}">
               <i class="bx bx-grid-alt"></i>

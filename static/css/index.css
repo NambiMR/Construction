@@ -9,24 +9,24 @@
     height: 100vh;
     background-size: 100% 100%;
     background-position: center;
-    animation: slider 25s linear infinite;
+    animation: slider 20s linear infinite;
 }
 
 @keyframes slider {
     0% {
-        background-image: url(/static/images/img2.jpg);
+        background-image: url(/static/images/bg1.jpg);
     }
     25% {
-        background-image: url(/static/images/img3.jpg);
+        background-image: url(/static/images/bg10.webp);
     }
     50% {
-        background-image: url(/static/images/img5.jpeg);
+        background-image: url(/static/images/bg8.jpg);
     }
     75% {
-        background-image: url(/static/images/img6.jpeg);
+        background-image: url(/static/images/bg9.jpg);
     }
     100% {
-        background-image: url(/static/images/img2.jpg);
+        background-image: url(/static/images/img5.jpeg);
     }
 }
 

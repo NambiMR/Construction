@@ -10,7 +10,7 @@ body {
     align-items: center;
     flex-direction: column;
     min-height: 100vh;
-    background: url(/static/images/img2.jpg) no-repeat center;
+    background: url(/static/images/bg5.jpg) no-repeat center;
     background-size: cover;
     background-attachment: fixed;
     background-blend-mode: multiply;

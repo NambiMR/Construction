@@ -1,31 +1,24 @@
-{% load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Admin Login Panel</title>
-  <link rel="stylesheet" href="{% static 'css\alogin.css' %}">
+    <meta charset="UTF-8">
+    <title>Admin Login</title>
+    <link rel="stylesheet" href="{% static 'css/alogin.css' %}">
 </head>
 <body>
-  
-  <div class="container">
-    <div class="myform">
-      <form>
-        <h2>ADMIN LOGIN</h2>
-        <input type="text" placeholder="Email" name="email">
-        <input type="password" placeholder="Password" name="passord">
-        {% if error %}
-            <p class="error-message" style="color: red;">{{ error }}</p>
+    <div class="login-container">
+        <h2>Admin Login</h2>
+        {% if messages %}
+            {% for message in messages %}
+                <p class="error">{{ message }}</p>
+            {% endfor %}
         {% endif %}
-        <button type="submit">LOGIN</button>
-      </form>
+        <form method="post" autocomplete="off">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Login</button>
+        </form>
     </div>
-    <div class="image">
-      <img src="{% static 'images\logo.png' %}" alt="Logo">
-    </div>
-  </div>
-
 </body>
 </html>

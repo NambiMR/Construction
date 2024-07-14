@@ -2,116 +2,12 @@ from django.shortcuts import render ,redirect
 from django.http import HttpResponse
 from django.utils import timezone
 from . models import user,admin,Contact,Quote,Job,Worker,Project,Feedback
-
-def signup(request):
-    if request.method=='POST':
-        username=request.POST['username']
-        email=request.POST['email']
-        password=request.POST ['password']
-        users=user(username=username,email=email,password=password)
-        users.save()
-        return redirect('Naachiyar:login')
-    return render(request,"login.html")
-
-""" 
-def login(request):
-    if request.method == 'POST':
-        email = request.POST.get('email')
-        password = request.POST.get('password')
-        if email and password: 
-            try:
-                users = user.objects.get(email=email, password=password)
-                request.session['email'] = email
-                request.session.set_expiry(28800)
-                return redirect('Naachiyar:home')
-            except user.DoesNotExist:
-                error = 'Incorrect Email/Password'
-        else:
-            error = 'Please provide both email and password'
-        return render(request, "quote.html", {'error': error})
-    else:
-        if 'email' in request.session:
-            return redirect('Naachiyar:home')
-        else:
-            return render(request, "login.html")
         
- """
-def login(request):
-     if request.method == 'POST':
-        email = request.POST['email']
-        password = request.POST ['password']
-        authenticated = True 
-    
-        try:
 
-            users = user.objects.get(email=email, password=password)
-            
-            request.session['email'] = email
-            request.session.set_expiry(28800)
-            
-            return redirect('Naachiyar:home')  
-        except user.DoesNotExist:
-             error_message = 'Invalid email or password'
-             return render(request, 'login.html', {'error': error_message})
-     else:
-        if  'email' in request.session:
-
-
-            return redirect('Naachiyar:home') 
-        else:
-            return render(request,'nc/login.html')
-        
-def alogin(request):
-    if request.method == 'POST':
-        email = request.POST['email']
-        password = request.POST['password']
-        authenticated = True 
-    
-        try:
-
-            admins = admin.objects.get(email=email, password=password)
-            
-            request.session['email'] = email
-            request.session.set_expiry(28800)
-            
-            return redirect('Naachiyar:dashboard')  
-        except admin.DoesNotExist:
-             error_message = 'Invalid email or password'
-             return render(request, 'alogin.html', {'error': error_message})
-    else:
-        if  'email' in request.session:
-
-
-            return redirect('Naachiyar:dashboard') 
-        else:
-            return render(request,'alogin.html')
 def home(request):
     return render (request,"nc/index.html")
-def dashboard(request):
-    """ email = request.session.get('email')
- 
-    if not email:
-        return redirect('Naachiyar:alogin')
-    else: """
-    return render (request,"nc/admin.html")
 def projects(request):
     return render (request,"nc/projects.html")
-""" def temple(request):
-    return render (request,"temple.html")
-def church(request):
-    return render (request,"church.html")
-def mosque(request):
-    return render (request,"mosqe.html")
-def school(request):
-    return render (request,"school.html")
-def office(request):
-    return render (request,"office.html")
-def factory(request):
-    return render (request,"factory.html")
-def hospital(request):
-    return render (request,"hospital.html")
-def mall(request):
-    return render (request,"mall.html") """
 
 def Feedback_show(request):
     feedback= Feedback.objects.all()
@@ -125,11 +21,8 @@ def hiering(request):
     job= Job.objects.all()
     return render(request, "nc/hiering.html", {'job': job})
 
-
-
 def footer(request):
     return render(request,'nc/footer.html')
-
 
 def contact(request):
     if request.method=="POST":
@@ -192,8 +85,6 @@ def job(request):
             return render(request,"nc/index.html")
         return render(request,"nc/job.html")
 
-
-
 def feedback(request):
     if request.method=="POST":
         feedback=Feedback()
@@ -218,7 +109,32 @@ def feedback(request):
 from django.shortcuts import render, redirect,get_object_or_404
 from .models import Worker,Project
 from .forms import AddWorker,AddProject
+from django.contrib.auth import authenticate, login
 from django.contrib import messages
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.decorators import login_required
+
+@login_required
+def dashboard(request):
+    return render(request, 'nc/dashboard.html')
+
+def admin_login(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(request, data=request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(request, username=username, password=password)
+            if user is not None:
+                login(request, user)
+                return redirect('Naachiyar:dashboard') 
+            else:
+                messages.error(request, 'Please enter a correct username and password. Note that both fields may be case-sensitive.')
+        else:
+            messages.error(request, 'Please enter a correct username and password. Note that both fields may be case-sensitive.')
+    else:
+        form = AuthenticationForm()
+    return render(request, 'nc/alogin.html', {'form': form})
 
 def worker_list(request):
     if request.method == "POST":
@@ -284,8 +200,6 @@ def update_worker(request, id):
 
         messages.success(request, 'Details updated successfully.')
         return redirect('Naachiyar:worker_list')
-
-    # Pass the project instance to the template
     return render(request, 'nc/update_worker.html', {'worker': worker})
 
 
@@ -364,22 +278,6 @@ def update_project(request, id):
         return redirect('Naachiyar:project_list')
 
     return render(request, 'nc/update_project.html', {'project': project})
-
-    """ project = get_object_or_404(Project, id=id)
-
-    if request.method == 'POST':
-        
-
-        # Update project fields
-        
-
-        # Save the updated project
-        project.save()
-
-        messages.success(request, 'Project updated successfully.')
-        return redirect('Naachiyar:project_list')
-
-    # Pass the project instance to the template """
 
 def project_count(request):
     projects_count = Project.objects.count()

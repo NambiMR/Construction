@@ -19,13 +19,11 @@ app_name='Naachiyar'
 
 urlpatterns = [
 
-    path('signup/', views.signup, name='signup'),
-    path('login/', views.login, name='login'),
     path('', views.home, name='home'),
-    path('dashboard/',views.dashboard,name='dashboard'),
     path('contact/',views.contact,name='contact'),
     path('projects/',views.projects,name='projects'),
-    path('alogin/',views.alogin,name='alogin'),
+    path('alogin/', views.admin_login, name='admin_login'),
+    path('dashboard/',views.dashboard,name='dashboard'),
     path('quote/',views.quote,name='quote'),
     path('job/',views.job,name='job'),
     path('feedback/',views.feedback,name='feedback'),
