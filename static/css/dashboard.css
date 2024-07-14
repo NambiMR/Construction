@@ -1,47 +1,98 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 }
-.sidebar{
+
+body {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Dark mode styles */
+body.dark-mode {
+  background-color: #1e1e1e;
+  color: #c0c0c0;
+}
+
+body.dark-mode .sidebar {
+  background: #111;
+}
+
+body.dark-mode .sidebar .logo-details i,
+body.dark-mode .sidebar .logo-details .logo_name,
+body.dark-mode .sidebar .nav-links li i,
+body.dark-mode .sidebar .nav-links li a .links_name {
+  color: #c0c0c0;
+}
+
+body.dark-mode .sidebar .nav-links li a.active,
+body.dark-mode .sidebar .nav-links li a:hover {
+  background: #333;
+}
+
+body.dark-mode .home-section nav {
+  background: #333;
+}
+
+body.dark-mode .home-section nav .search-box input {
+  background: #555;
+  border: 2px solid #444;
+  color: #c0c0c0;
+}
+
+body.dark-mode .home-section nav .search-box .bx-search {
+  background: #444;
+}
+
+body.dark-mode .home-section nav .profile-details {
+  background: #555;
+  border: 2px solid #444;
+}
+
+body.dark-mode .home-section nav .profile-details .admin_name {
+  color: #c0c0c0;
+}
+
+.sidebar {
   position: fixed;
   height: 100%;
   width: 240px;
   background: #0A2558;
   transition: all 0.5s ease;
 }
-.sidebar.active{
+.sidebar.active {
   width: 60px;
 }
-.sidebar .logo-details{
+.sidebar .logo-details {
   height: 80px;
   display: flex;
   align-items: center;
+  background-color: #f18930;
 }
-.sidebar .logo-details i{
+.sidebar .logo-details i {
   font-size: 28px;
   font-weight: 500;
   color: #fff;
   min-width: 60px;
   text-align: center
 }
-.sidebar .logo-details .logo_name{
+.sidebar .logo-details .logo_name {
   color: #fff;
   font-size: 24px;
   font-weight: 500;
   text-align: center;
 }
-.sidebar .nav-links{
+.sidebar .nav-links {
   margin-top: 10px;
 }
-.sidebar .nav-links li{
+.sidebar .nav-links li {
   position: relative;
   list-style: none;
   height: 50px;
 }
-.sidebar .nav-links li a{
+.sidebar .nav-links li a {
   height: 100%;
   width: 100%;
   display: flex;
@@ -49,30 +100,30 @@
   text-decoration: none;
   transition: all 0.4s ease;
 }
-.sidebar .nav-links li a.active{
+.sidebar .nav-links li a.active {
   background: #f18930;
 }
-.sidebar .nav-links li a:hover{
+.sidebar .nav-links li a:hover {
   background: #f18930;
 }
-.sidebar .nav-links li i{
+.sidebar .nav-links li i {
   min-width: 60px;
   text-align: center;
   font-size: 18px;
   color: #fff;
 }
-.sidebar .nav-links li a .links_name{
+.sidebar .nav-links li a .links_name {
   color: #fff;
   font-size: 15px;
   font-weight: 400;
   white-space: nowrap;
 }
-.sidebar .nav-links .log_out{
+.sidebar .nav-links .log_out {
   position: absolute;
   bottom: 0;
   width: 100%;
 }
-.home-section{
+.home-section {
   position: relative;
   background: #f5f5f5;
   min-height: 100vh;
@@ -80,11 +131,11 @@
   left: 240px;
   transition: all 0.5s ease;
 }
-.sidebar.active ~ .home-section{
+.sidebar.active ~ .home-section {
   width: calc(100% - 60px);
   left: 60px;
 }
-.home-section nav{
+.home-section nav {
   display: flex;
   justify-content: space-between;
   height: 80px;
@@ -99,28 +150,28 @@
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.1);
   transition: all 0.5s ease;
 }
-.sidebar.active ~ .home-section nav{
+.sidebar.active ~ .home-section nav {
   left: 60px;
   width: calc(100% - 60px);
 }
-.home-section nav .sidebar-button{
+.home-section nav .sidebar-button {
   display: flex;
   align-items: center;
   font-size: 24px;
   font-weight: 500;
 }
-nav .sidebar-button i{
+nav .sidebar-button i {
   font-size: 35px;
   margin-right: 10px;
 }
-.home-section nav .search-box{
+.home-section nav .search-box {
   position: relative;
   height: 50px;
   max-width: 550px;
   width: 100%;
   margin: 0 20px;
 }
-nav .search-box input{
+nav .search-box input {
   height: 100%;
   width: 100%;
   outline: none;
@@ -130,7 +181,7 @@ nav .search-box input{
   font-size: 18px;
   padding: 0 15px;
 }
-nav .search-box .bx-search{
+nav .search-box .bx-search {
   position: absolute;
   height: 40px;
   width: 40px;
@@ -145,7 +196,7 @@ nav .search-box .bx-search{
   font-size: 22px;
   transition: all 0.4 ease;
 }
-.home-section nav .profile-details{
+.home-section nav .profile-details {
   display: flex;
   align-items: center;
   background: #F5F6FA;
@@ -155,20 +206,20 @@ nav .search-box .bx-search{
   min-width: 190px;
   padding: 0 15px 0 2px;
 }
-nav .profile-details img{
+nav .profile-details img {
   height: 40px;
   width: 40px;
   border-radius: 6px;
   object-fit: cover;
 }
-nav .profile-details .admin_name{
+nav .profile-details .admin_name {
   font-size: 15px;
   font-weight: 500;
   color: #333;
   margin: 0 10px;
   white-space: nowrap;
 }
-nav .profile-details i{
+nav .profile-details i {
   font-size: 25px;
   color: #333;
 }

@@ -18,3 +18,7 @@ th {
 padding: 90px;
 
 }
+.action-buttons {
+    display: flex;
+    gap: 5px;
+}

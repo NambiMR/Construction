@@ -1,11 +1,10 @@
-
-{% load static%}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Dashboard</title>
     <link rel="stylesheet" href="{% static 'css/dashboard.css' %}" />
 </head>
 <body>
@@ -16,52 +15,47 @@
         </div>    
         <ul class="nav-links">
           <li>
-            <a href="/dashboard" class="active">
+            <a href="/dashboard" class="{% if request.path == '/dashboard' %}active{% endif %}">
               <i class="bx bx-grid-alt"></i>
               <span class="links_name">Dashboard</span>
             </a>
           </li>
           <li>
-            <a href="/worker">
+            <a href="/worker" class="{% if request.path == '/worker' %}active{% endif %}">
               <i class="bx bx-group"></i>
               <span class="links_name">Workers</span>
             </a>
           </li>
-    
           <li>
-            <a href="/project">
+            <a href="/project" class="{% if request.path == '/project' %}active{% endif %}">
               <i class="bx bx-task"></i>
               <span class="links_name">Projects</span>
             </a>
           </li>
           <li>
-            <a href="/hiering">
+            <a href="/hiering" class="{% if request.path == '/hiering' %}active{% endif %}">
               <i class="bx bx-user-plus"></i>
-              <span class="links_name">Hiering</span>
+              <span class="links_name">Hiring</span>
             </a>
           </li>
-        
           <li>
-            <a href="/adminquote">
+            <a href="/adminquote" class="{% if request.path == '/adminquote' %}active{% endif %}">
               <i class="bx bx-message-rounded-detail"></i>
               <span class="links_name">Quote</span>
             </a>
           </li>
-    
           <li>
-            <a href="/adminfeedback">
+            <a href="/adminfeedback" class="{% if request.path == '/adminfeedback' %}active{% endif %}">
               <i class="bx bx-message"></i>
               <span class="links_name">Feedback</span>
             </a>
           </li>
-    
           <li id="darkModeToggleBtn">
             <a href="#">
                 <i class="bx bx-moon"></i>
                 <span class="links_name">Dark Mode</span>
             </a>
-        </li>
-        
+          </li>
           <li class="log_out">
             <a href="#">
               <i class="bx bx-log-out"></i>
@@ -81,11 +75,39 @@
             <i class="bx bx-search"></i>
           </div>
           <div class="profile-details">
-            <img src="{% static 'images\profile.jpg' %}" />
+            <img src="{% static 'images/profile.jpg' %}" />
             <span class="admin_name">Md Ashfaq </span>
           </div>
         </nav>
+        <script src="{% static 'js/admin.js' %}"></script>
+        <script>
+          // Dark mode toggle functionality
+          document.getElementById('darkModeToggleBtn').addEventListener('click', function() {
+            document.body.classList.toggle('dark-mode');
+            // Save the preference to localStorage
+            if (document.body.classList.contains('dark-mode')) {
+              localStorage.setItem('darkMode', 'enabled');
+            } else {
+              localStorage.removeItem('darkMode');
+            }
+          });
+
+          // Apply dark mode on page load if previously enabled
+          if (localStorage.getItem('darkMode') === 'enabled') {
+            document.body.classList.add('dark-mode');
+          }
+
+          // Sidebar toggle functionality
+          let sidebar = document.querySelector(".sidebar");
+          let sidebarBtn = document.querySelector(".sidebarBtn");
+          sidebarBtn.onclick = function() {
+            sidebar.classList.toggle("active");
+            if(sidebar.classList.contains("active")){
+              sidebarBtn.classList.replace("bx-menu", "bx-menu-alt-right");
+            } else {
+              sidebarBtn.classList.replace("bx-menu-alt-right", "bx-menu");
+            }
+          };
+        </script>
 </body>
 </html>
-
-  
