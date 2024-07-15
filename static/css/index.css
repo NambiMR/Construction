@@ -9,7 +9,7 @@
     height: 100vh;
     background-size: 100% 100%;
     background-position: center;
-    animation: slider 20s linear infinite;
+    animation: slider 30s linear infinite;
 }
 
 @keyframes slider {
