@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-y^^y2ghbky^$&crl^gtgpltur63a3yg8-%#w#x%&1z_j30@f!p
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -75,7 +75,7 @@ WSGI_APPLICATION = 'NC.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
-DATABASES = {
+""" DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'nc',
@@ -84,7 +84,7 @@ DATABASES = {
         'HOST' :'127.0.0.1',
         'PORT': '3306',
     }
-}
+} """
 
 
 # Password validation
@@ -124,6 +124,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
+""" STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles_build', 'static') """
+MEDIA_URLS ='/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATICFILES_DIRS=[os.path.join(BASE_DIR,"static")]
 
 CRISPY_TEMPLATE_PACK='bootstrap5'
